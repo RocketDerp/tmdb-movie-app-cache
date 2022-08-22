@@ -1,12 +1,8 @@
 <script lang="ts">
-	// import { show_name } from '$lib/stores/store';
-	// import SeasonTitle from '$lib/components/SeasonTitle.svelte';
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
 	export let season_details: SeasonType;
 	export let tv_id: string;
 </script>
-
-<!-- <SeasonTitle {season_details} /> -->
 
 <section id="season">
 	<div
@@ -24,7 +20,7 @@
 							class="flex mx-auto max-h-full max-w-full xl:m-0 xl:flex-none xl:w-80 xl:h-44 xl:items-start"
 						>
 							<img
-								class="flex xl:w-80 xl:h-44 items-start"
+								class="flex xl:w-[300px] xl:h-[169px] items-start bg-cover"
 								src={episode.still_path ? IMAGE_API + episode.still_path : '/default.jpg'}
 								alt="season"
 							/>
@@ -33,7 +29,13 @@
 							<h4>{episode.name}</h4>
 							<h6>Air Date: {episode.air_date}</h6>
 							<h6>Overview:</h6>
-							<h6 class=" flex-1 pr-8 text-skin-muted mb-4">{episode.overview}</h6>
+							{#if episode.overview}
+								<h6 class=" flex-1 pr-8 text-skin-muted mb-4">{episode.overview}</h6>
+							{:else}
+								<h6 class=" flex-1 pr-8 text-skin-muted mb-4">
+									No information currently available
+								</h6>
+							{/if}
 						</div>
 					</a>
 				</div>

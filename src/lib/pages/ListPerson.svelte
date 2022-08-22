@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PersonCard from '$lib/components/PersonCard.svelte';
+	import CardPerson from '$lib/components/CardPerson.svelte';
 	export let person_data: PersonResult[];
 </script>
 
@@ -8,6 +8,6 @@
 	class="flex flex-wrap justify-around mx-auto bg-skin-tertiary max-w-7xl xl:mt-2 xl:rounded-2xl"
 >
 	{#each person_data as datum}
-		<PersonCard {datum} />
+		<CardPerson {datum} />
 	{/each}
 </section>

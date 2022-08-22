@@ -1,8 +1,6 @@
 <script lang="ts">
 	export let knownFor: KnownForType[];
 
-	// type TaggedMovie = MovieType & { media_type: 'movie' };
-	// type TaggedTv = TvType & { media_type: 'tv' };
 	let films: KnownForType[];
 	let tv: KnownForType[];
 

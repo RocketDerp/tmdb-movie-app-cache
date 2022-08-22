@@ -1,9 +1,7 @@
 <script lang="ts">
 	import SrcSet from '$lib/srcSets/SrcSet.svelte';
 	import ProgressBar from '$lib/svgs/ProgressBar.svelte';
-	// const IMAGE_API = 'https://image.tmdb.org/t/p/w300';
 	export let datum: MovieResult | AllResult;
-	// let image_name = datum.poster_path;
 	let percent = Math.floor(datum.vote_average * 10);
 </script>
 

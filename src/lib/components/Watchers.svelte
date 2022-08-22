@@ -12,13 +12,6 @@
 		{ code: 'DE', name: 'Germany', component: flag.de },
 		{ code: 'ES', name: 'Spain', component: flag.es }
 	];
-	console.log('gb', watchers_details.GB);
-	console.log('us', watchers_details.US);
-	console.log('ca', watchers_details.CA);
-	console.log('au', watchers_details.AU);
-	console.log('fr', watchers_details.FR);
-	console.log('de', watchers_details.DE);
-	console.log('es', watchers_details.ES);
 
 	let activeCountryindex = 0;
 
@@ -31,19 +24,18 @@
 >
 	{#key activeCountryindex}
 		<div>
-			<div class="flex justify-between">
-				<h3 class="flex justify-center text-2xl text-skin-base font-bold ">Where to watch</h3>
-				<div class="flex flex-row items-center">
-					<h2 class="text-lg">Data supplied by</h2>
-					<img class="ml-2 h-4" src="/JustWatch-logo.webp" alt="Just watch" />
-				</div>
-				<div class="relative z-50 inline-block group">
-					<div class="w-48 ">
+			<div class="xl:flex flex-col xl:justify-between">
+				<h3 class="text-xl flex justify-center xl:text-2xl text-skin-base font-bold ">
+					Where to watch
+				</h3>
+
+				<div class="flex flex-end w-full justify-end mt-2 xl:mt-0 relative z-50 group">
+					<div class="w-40 ">
 						<div class="flex flex-row items-center">
 							<div class="w-4 h-3">
 								<svelte:component this={CountryCode[activeCountryindex].component} />
 							</div>
-							<span class="pl-2">{CountryCode[activeCountryindex].name}</span>
+							<span class="pl-2 ">{CountryCode[activeCountryindex].name}</span>
 						</div>
 						<ul
 							class="cursor-pointer hidden rounded absolute bg-skin-primary text-skin-base group-hover:block"
@@ -54,7 +46,7 @@
 										<div class="w-4 h-3">
 											<svelte:component this={country.component} />
 										</div>
-										<span class="pl-2">{country.name}</span>
+										<span class="pl-2 text-skin-inverted">{country.name}</span>
 									</div>
 								</li>
 							{/each}
@@ -111,4 +103,8 @@
 			{/if}
 		{/if}
 	{/key}
+	<div class="flex flex-row items-center">
+		<h2 class="ml-2 xl:ml-0 text-sm xl:text-lg">Data supplied by</h2>
+		<img class="ml-2 h-3 xl:h-4" src="/JustWatch-logo.webp" alt="Just watch" />
+	</div>
 </section>

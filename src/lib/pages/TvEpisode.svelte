@@ -1,11 +1,7 @@
 <script lang="ts">
-	// import SeasonTitle from '$lib/components/SeasonTitle.svelte';
-	const IMAGE_API = 'https://image.tmdb.org/t/p/original';
+	const IMAGE_API = 'https://image.tmdb.org/t/p/w300';
 	export let episode_details: EpisodesType;
-	// let selected_season:number = episode_details.episode_number
 </script>
-
-<!-- <SeasonTitle {selected_season} /> -->
 
 <section id="episode">
 	<div
@@ -19,13 +15,12 @@
 						class="flex mx-auto max-h-full max-w-full xl:m-0 xl:flex-none xl:w-80 xl:h-44 xl:items-start"
 					>
 						<img
-							class="flex items-start"
+							class="flex xl:w-[300px] xl:h-[169px] items-start bg-cover"
 							src={episode_details.still_path
 								? IMAGE_API + episode_details.still_path
 								: '/default.jpg'}
 							alt="episode"
 						/>
-						<!-- class="xl:h-44 items-start bg-cover" -->
 					</div>
 
 					<div class="ml-2 block">

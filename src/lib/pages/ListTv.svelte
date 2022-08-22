@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TvCard from '$lib/components/TvCard.svelte';
+	import CardTv from '$lib/components/CardTv.svelte';
 	export let tv_data: ShowResult[];
 </script>
 
@@ -8,6 +8,6 @@
 	class="flex flex-wrap justify-around mx-auto bg-skin-tertiary max-w-7xl xl:mt-2 xl:rounded-2xl"
 >
 	{#each tv_data as datum}
-		<TvCard {datum} />
+		<CardTv {datum} />
 	{/each}
 </section>

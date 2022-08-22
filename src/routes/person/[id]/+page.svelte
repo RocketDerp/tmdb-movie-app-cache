@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Person from '$lib/pages/Person.svelte';
+	import Person from '$lib/pages/MediaPerson.svelte';
 
 	import type { PageData, Errors } from './$types';
 

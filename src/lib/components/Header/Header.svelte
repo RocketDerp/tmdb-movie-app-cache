@@ -18,7 +18,9 @@
 				class="text-3xl text-skin-inverted hover:text-skin-selected"
 				href="/"
 			>
-				<Home />
+				<div class="w-8 h-8 fill-inverted hover:fill-selected">
+					<Home />
+				</div>
 			</button>
 			<Selector />
 		</div>

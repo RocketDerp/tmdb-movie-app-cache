@@ -1,7 +1,6 @@
 <script lang="ts">
-	import TvCard from '$lib/components/TvCard.svelte';
-	import MovieCard from '$lib/components/MovieCard.svelte';
-
+	import CardMovie from '$lib/components/CardMovie.svelte';
+	import CardTv from '$lib/components/CardTv.svelte';
 	export let all_data: AllResult[];
 </script>
 
@@ -11,9 +10,9 @@
 >
 	{#each all_data as datum}
 		{#if datum.media_type === 'tv'}
-			<TvCard {datum} />
+			<CardTv {datum} />
 		{:else if datum.media_type === 'movie'}
-			<MovieCard {datum} />
+			<CardMovie {datum} />
 		{/if}
 	{/each}
 </section>
