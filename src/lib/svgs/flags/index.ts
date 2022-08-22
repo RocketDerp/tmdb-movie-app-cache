@@ -1,4 +1,4 @@
-export { default as gb } from '.gb.svelte'
+export { default as gb } from './gb.svelte'
 export { default as us } from './us.svelte'
 export { default as au } from './au.svelte'
 export { default as ca } from './ca.svelte'
