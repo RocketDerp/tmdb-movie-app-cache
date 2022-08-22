@@ -31,7 +31,7 @@
 									alt="profile"
 								/>
 							{:else}
-								<div class="rounded-t w-28 h-42">
+								<div class="flex rounded-t w-28 h-42">
 									<DummyPerson />
 								</div>
 								<!-- <img
