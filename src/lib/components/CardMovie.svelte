@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ImageLoader from '$lib/Image/ImageLoader.svelte';
+
 	import SrcSet from '$lib/srcSets/SrcSet.svelte';
 	import ProgressBar from '$lib/svgs/ProgressBar.svelte';
 	export let datum: MovieResult | AllResult;
@@ -14,15 +16,18 @@
 			id="flip-card-front"
 			class="top-0 right-0 backface-hidden text-skin-base bg-skin-bg xl:rounded-lg"
 		>
-			{#if datum.poster_path && datum.title}
-				<SrcSet image_path={datum.poster_path} image_title={datum.title} />
-			{:else}
-				<img
-					class="oject-cover w-44 h-[264px] xl:w-60 xl:h-90 xl:rounded-t-lg  text-skin-muted "
-					src="/default.jpg"
-					alt={datum.title}
-				/>
-			{/if}
+			<div class="h-[264] xl:h-90">
+				{#if datum.poster_path && datum.title}
+					<SrcSet image_path={datum.poster_path} image_title={datum.title} />
+				{:else}
+					<img
+						class="oject-cover w-44 h-[264px] xl:w-60 xl:h-90 xl:rounded-t-lg  text-skin-muted "
+						src="/default.jpg"
+						alt={datum.title}
+						loading="lazy"
+					/>
+				{/if}
+			</div>
 			<div class="p-2 xl:ml-4">
 				<h6
 					class="w-40 overflow-hidden text-sm xl:text-md text-skin-base xl:w-52 whitespace-nowrap overflow-ellipsis"

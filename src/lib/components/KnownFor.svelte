@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ImageLoader from '$lib/Image/ImageLoader.svelte';
+
 	export let knownFor: KnownForType[];
 
 	let films: KnownForType[];
@@ -32,11 +34,12 @@
 					class="w-28 h-56 flex-shrink-0 xl:rounded mb-2 relative bg-secondary m-0.5 sm:mr-3 hover:bg-selected"
 				>
 					<a class="rounded w-28" href={`/movie/${movie.id}`}>
-						<img
-							class="object-cover w-28 h-44 rounded-t"
+						
+						<ImageLoader
+							klass={"object-cover w-28 h-44 rounded-t"}
 							src={movie.poster_path ? IMAGE_API + movie.poster_path : '/default.jpg'}
 							alt={movie.title}
-						/>
+						/>					
 						<div class="w-28 h-12 p-0.5">
 							<p class="text-xs text-center flex justify-center items-center line-clamp-2">
 								{movie.title}
@@ -62,8 +65,8 @@
 					class="w-28 h-56 flex-shrink-0 xl:rounded mb-2 relative bg-secondary m-0.5 sm:mr-3 hover:bg-selected"
 				>
 					<a class="rounded w-28" href={`/tv/${show.id}`}>
-						<img
-							class="object-cover w-28 h-44 rounded-t"
+						<ImageLoader
+							klass={"object-cover w-28 h-44 rounded-t"}
 							src={show.poster_path ? IMAGE_API + show.poster_path : '/default.jpg'}
 							alt={show.name}
 						/>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import SrcSet from '$lib/srcSets/SrcSet.svelte';
 	import ProgressBar from '$lib/svgs/ProgressBar.svelte';
-	// const IMAGE_API = 'https://image.tmdb.org/t/p/w300';
 	export let datum: ShowResult | AllResult;
 	let percent = Math.floor(datum.vote_average * 10);
 </script>
@@ -15,15 +14,18 @@
 			id="flip-card-front"
 			class="top-0 right-0 backface-hidden text-skin-base bg-skin-bg xl:rounded-lg"
 		>
-			{#if datum.poster_path && datum.name}
-				<SrcSet image_path={datum.poster_path} image_title={datum.name} />
-			{:else}
-				<img
-					class="oject-cover w-44 h-[264px] xl:w-60 xl:h-90 xl:rounded-t-lg  text-skin-muted "
-					src="/default.jpg"
-					alt={datum.name}
-				/>
-			{/if}
+			<div class="w-44 h-[264px] xl:w-60 xl:h-90 ">
+				{#if datum.poster_path && datum.name}
+					<SrcSet image_path={datum.poster_path} image_title={datum.name} />
+				{:else}
+					<img
+						class="oject-cover w-44 h-[264px] xl:w-60 xl:h-90 xl:rounded-t-lg  text-skin-muted "
+						src="/default.jpg"
+						alt={datum.name}
+						loading="lazy"
+					/>
+				{/if}
+			</div>
 			<div class="p-2 xl:ml-4">
 				<h6
 					class="w-40 overflow-hidden text-sm xl:text-md text-skin-base xl:w-52 whitespace-nowrap overflow-ellipsis"

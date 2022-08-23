@@ -16,7 +16,7 @@
 				<img
 					class="mt-4 xl:mt-0 xl:pt-0 w-64 h-96 rounded-2xl mx-auto"
 					src={IMAGE_API + person.profile_path}
-					alt="profile"
+					alt={person.name}
 				/>
 			{:else}
 				<div class="mt-4 xl:pt-0 flex justify-end w-64 h-96 rounded-2xl mx-auto">

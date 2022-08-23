@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ImageLoader from '$lib/Image/ImageLoader.svelte';
 	import DummyPerson from '$lib/svgs/DummyPerson.svelte';
 	export let cast_details: CastType[] = [];
 
@@ -8,7 +9,7 @@
 {#if cast_details.length}
 	<section
 		id="people"
-		class="my-2 pt-1 mx-auto max-w-7xl xl:mt-5 xl:mb-10 bg-skin-secondary xl:pl-5 xl:rounded-2xl"
+		class="my-2 pt-1 mx-auto max-w-7xl xl:mt-5 mb-10 bg-skin-secondary xl:pl-5 xl:rounded-2xl"
 	>
 		<h3
 			class="flex justify-center text-2xl font-bold text-skin-base xl:inline-block xl:justify-start xl:my-5"
@@ -25,8 +26,8 @@
 					<a href={`/person/${person.id}`}>
 						<div class="bg-blue-900 w-28 h-42">
 							{#if person.profile_path}
-								<img
-									class="rounded-t w-28 h-42"
+								<ImageLoader
+									klass="rounded-t w-28 h-42"
 									src={IMAGE_API + person.profile_path}
 									alt="profile"
 								/>
@@ -34,11 +35,6 @@
 								<div class="flex rounded-t w-28 h-42">
 									<DummyPerson />
 								</div>
-								<!-- <img
-									class="bottom-0 flex items-end justify-end pt-8 rounded-t w-28 h-42"
-									src="/person.svg"
-									alt="profile"
-								/> -->
 							{/if}
 						</div>
 						<p
