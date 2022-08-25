@@ -10,11 +10,11 @@
 		console.log('ERRORS', errors);
 	}
 
-	let { media_data, total_pages } = data;
+	
 	$: media_type = $page.params.media as unknown as MediaType;
 	$: searching = $page.params.id as unknown as string;
 </script>
 
-{#key data}
-	<MainSection {media_data} {total_pages} {searching} {media_type} />
+{#key $page.url}
+	<MainSection media_data={data.media_data} total_pages={data.total_pages} {searching} {media_type} />
 {/key}
