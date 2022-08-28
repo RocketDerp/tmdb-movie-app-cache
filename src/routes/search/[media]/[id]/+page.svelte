@@ -15,5 +15,10 @@
 </script>
 
 {#key $page.url}
-	<MainSection media_data={data.media_data} total_pages={data.total_pages} {searching} {media_type} />
+	<MainSection
+		media_data={data.media_data}
+		total_pages={data.total_pages}
+		{searching}
+		{media_type}
+	/>
 {/key}
