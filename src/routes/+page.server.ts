@@ -1,9 +1,8 @@
 import { error } from "@sveltejs/kit";
-import type { PageServerLoad } from './$types';
 
 const api: string = import.meta.env.VITE_API_KEY
 
-export const load: PageServerLoad = async () => {
+export const load = async () => {
     try {
         const url = `https://api.themoviedb.org/3/trending/all/week?api_key=${api}&language=en-GB&page=1`;
         const response = await fetch(url);

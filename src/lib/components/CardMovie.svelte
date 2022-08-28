@@ -1,6 +1,4 @@
 <script lang="ts">
-	import ImageLoader from '$lib/Image/ImageLoader.svelte';
-
 	import SrcSet from '$lib/srcSets/SrcSet.svelte';
 	import ProgressBar from '$lib/svgs/ProgressBar.svelte';
 	export let datum: MovieResult | AllResult;

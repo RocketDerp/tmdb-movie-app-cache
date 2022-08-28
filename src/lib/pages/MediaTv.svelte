@@ -34,7 +34,7 @@
 
 <section
 	id="TV Media"
-	class="bg-right-top bg-no-repeat bg-contain text-skin-inverted md:mt-2 xl:rounded-2xl"
+	class="bg-right-top bg-no-repeat bg-contain text-white md:mt-2 xl:rounded-2xl"
 	style="background-image: url({IMAGE_API}original/{tv_details.backdrop_path})"
 >
 	<div
@@ -57,7 +57,7 @@
 				<div class="flex flex-wrap w-full mt-6 mb-6 md:mt-0">
 					<h4 class="w-full md:text-4xl">
 						{tv_details.name}
-						<span class="ml-1 text-lg md:text-4xl text-skin-inverted">
+						<span class="ml-1 text-lg md:text-4xl text-white">
 							{tv_details ? tv_details.first_air_date.substring(0, 4) : ''}
 						</span>
 					</h4>

@@ -17,5 +17,3 @@ export const load: PageServerLoad = async ({ params }) => {
         throw error(400, 'not found');
     }
 }
-
-// :Promise<{ results: ShowResult[] | MovieResult[] | PersonResult[]; total_pages: number; }>

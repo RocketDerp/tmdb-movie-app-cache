@@ -11,11 +11,10 @@
 	export let searching: string | undefined = undefined;
 	export let media_type: MediaType;
 
-	let movie_data: MovieResult[];
-	let tv_data: ShowResult[];
-	let person_data: PersonResult[];
-	let all_data: AllResult[];
-
+	let movie_data: MovieResult[] = [];
+	let tv_data: ShowResult[] = [];
+	let person_data: PersonResult[] = [];
+	let all_data: AllResult[] = [];
 	if (media_type === 'movie') {
 		movie_data = media_data as MovieResult[];
 	}

@@ -32,6 +32,15 @@ const config = {
 					mutedinverted: 'var(--color-text-muted-inverted)'
 				}
 			},
+			boxShadowColor: {
+				skin: {
+					shadow1: 'var(--color-shadow-1)',
+					shadow2: 'var(--color-shadow-2)',
+					shadow3: 'var(--color-shadow-3)',
+					shadow4: 'var(--color-shadow-4)',
+
+				}
+			},
 			backgroundColor: {
 				skin: {
 					primary: 'var(--color-primary)',

@@ -3,13 +3,17 @@
 	import { tv_genres, movie_genres, selected } from '$lib/stores/store';
 </script>
 
-<div class="w-full bg-skin-primary">
-	<div class="flex flex-row p-1">
-		<div class="flex flex-col p-1 m-1 bg-skin-secondary">
-			<h6 class="flex flex-ruppercase text-skin-base">
+<div
+	class="w-full text-skin-inverted neumorph dark:neumorphdark"
+>
+	<div class="flex flex-row p-1 ">
+		<div
+			class="flex flex-col p-1 m-1 p-[2px] neumorph  dark:neumorphdark"
+		>
+			<h6 class="flex flex-row text-skin-primary">
 				<span class="mr-2">
 					<svg
-						class="w-6 h-6 fill-base"
+						class="w-6 h-6 fill-inverted"
 						aria-hidden="true"
 						role="img"
 						style="vertical-align: -0.125em;"
@@ -22,14 +26,13 @@
 					</svg>
 				</span>Movies
 			</h6>
-			<div class="py-0.5 justify-center bg-skin-inverted" />
+			<div class="py-0.5 justify-center" />
 			<ul class="flex flex-col justify-center text-sm ">
 				{#each $movie_genres as genre}
 					<li class="flex">
 						<button
 							aria-label={genre.name}
-							class="block p-1 hover:bg-skin-primary text-skin-base hover:text-skin-selected whitespace-nowrap"
-							class:bg-selected={$selected === genre.id}
+							class="block p-1 hover:bg-skin-primary text-skin-inverted hover:text-skin-selected whitespace-nowrap neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
 							on:click|preventDefault={() => {
 								$selected = genre.id;
 								goto(`/genre/movie/${genre.id}`);
@@ -41,11 +44,16 @@
 				{/each}
 			</ul>
 		</div>
-		<div class="flex flex-col p-1 m-1 bg-skin-secondary">
-			<h6 class="flex flex-row uppercase text-skin-base">
+		<div
+			class="flex flex-col p-1 m-1 flex flex-col p-1 m-1 bg-[#e7e7f5] p-[2px] border-none						
+	shadow-[1px_1px_2px_rgba(163,177,198,0.4),-2px_-2px_4px_rgba(255,255,255,0.9)]
+	dark:bg-[#515151]
+	dark:shadow-[2px_2px_4px_#101114,-2px_-2px_6px_#24252a]"
+		>
+			<h6 class="flex flex-row uppercase text-skin-inverted">
 				<span class="mr-2">
 					<svg
-						class="w-6 h-6 fill-base"
+						class="w-6 h-6 fill-inverted"
 						aria-hidden="true"
 						role="img"
 						style="vertical-align: -0.125em;"
@@ -58,12 +66,13 @@
 					</svg>
 				</span>Tv
 			</h6>
-			<p class="py-0.5 justify-center text-skin-base" />
+			<p class="py-0.5 justify-center text-skin-inverted" />
 			<ul class="flex flex-col justify-center text-sm">
 				{#each $tv_genres as genre}
 					<li class="flex">
 						<button
-							class="block p-1 hover:bg-skin-primary text-skin-base hover:text-skin-selected whitespace-nowrap"
+							class="block p-1 whitespace-nowrap text-skin-inverted hover:text-skin-selected
+							neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
 							class:bg-selected={$selected === genre.id}
 							on:click|preventDefault={() => {
 								$selected = genre.id;

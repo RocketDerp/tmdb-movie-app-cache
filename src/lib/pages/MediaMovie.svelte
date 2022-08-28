@@ -31,7 +31,7 @@
 
 <section
 	id="Movie Media"
-	class="bg-right-top bg-no-repeat bg-contain text-skin-inverted xl:mt-5 xl:rounded-2xl"
+	class="bg-right-top bg-no-repeat bg-contain text-white xl:mt-5 xl:rounded-2xl"
 	style="background-image: url({IMAGE_API}original/{movie_details.backdrop_path})"
 >
 	<div
@@ -54,7 +54,7 @@
 				<div class="flex flex-wrap w-full mt-6 md:mt-0">
 					<h4 class="w-full md:flex md:text-4xl">
 						{movie_details.title}
-						<span class="ml-1 text-lg md:text-4xl text-skin-inverted">
+						<span class="ml-1 text-lg md:text-4xl text-white">
 							{movie_details.release_date ? movie_details.release_date.substring(0, 4) : ''}
 						</span>
 					</h4>

@@ -20,33 +20,49 @@
 
 <section
 	id="watchers"
-	class="my-2 pt-1 pb-4 mx-auto max-w-7xl xl:mt-5 xl:mb-5 bg-skin-secondary text-skin-base xl:pl-5 xl:rounded-2xl"
+	class="my-2 pt-1 pb-4 mx-auto max-w-7xl xl:mt-5 xl:mb-5 bg-skin-primary text-skin-base xl:pl-5 xl:rounded-2xl"
 >
 	{#key activeCountryindex}
 		<div>
-			<div class="xl:flex flex-col xl:justify-between">
+			<div class="xl:flex w-full flex-col xl:justify-between">
 				<h3 class="text-xl flex justify-center xl:text-2xl text-skin-base font-bold ">
 					Where to watch
 				</h3>
 
-				<div class="flex flex-end w-full justify-end mt-2 xl:mt-0 relative z-50 group">
-					<div class="w-40 ">
-						<div class="flex flex-row items-center">
+				<div class="flex flex-end justify-end mt-2 xl:mt-0 z-50 mr-8 relative inline-block group">
+					<!-- dropdown -->
+					<div
+						class="text-skin-inverted hover:text-skin-selected w-44 
+						neumorph group-hover:neumorphhover dark:neumorphdark dark:group-hover:neumorphhover "
+					>
+						<!-- dropdown button  -->
+						<div class="flex flex-row items-center justify-center">
 							<div class="w-4 h-3">
 								<svelte:component this={CountryCode[activeCountryindex].component} />
 							</div>
 							<span class="pl-2 ">{CountryCode[activeCountryindex].name}</span>
 						</div>
+
+						<!-- dropdown content  -->
 						<ul
-							class="cursor-pointer hidden rounded absolute bg-skin-primary text-skin-base group-hover:block"
+							class="fixed left-0 cursor-pointer hidden rounded bg-skin-primary absolute text-skin-base group-hover:block"
 						>
 							{#each CountryCode as country, index}
-								<li on:click={() => (activeCountryindex = index)} class="dropdown-item">
-									<div class="flex flex-row items-center">
+								<li
+									on:click={() => (activeCountryindex = index)}
+									class="justify-center pt-[7px] mx-3"
+								>
+									<div
+										class="w-38 flex flex-row items-center 
+										neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover
+									"
+									>
 										<div class="w-4 h-3">
 											<svelte:component this={country.component} />
 										</div>
-										<span class="pl-2 text-skin-inverted">{country.name}</span>
+										<span class="pl-2 hover:text-skin-selected text-skin-inverted"
+											>{country.name}</span
+										>
 									</div>
 								</li>
 							{/each}

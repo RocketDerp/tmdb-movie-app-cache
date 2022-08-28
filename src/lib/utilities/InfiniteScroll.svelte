@@ -4,7 +4,7 @@
 	const dispatch = createEventDispatcher();
 
 	let isLoadMore = false;
-	let _component: HTMLDivElement;
+	let component: HTMLDivElement;
 	let element: Document;
 
 	onMount(() => {
@@ -12,7 +12,7 @@
 	});
 	
 
-	$: if (element) {
+	$: if (component) {
 		element.addEventListener('scroll', onScroll);
 	}
 
@@ -41,4 +41,4 @@
 	});
 </script>
 
-<div bind:this={_component} id="svelte-infinite-scroll" class="w-0" />
+<div bind:this={component} id="svelte-infinite-scroll" class="w-0" />

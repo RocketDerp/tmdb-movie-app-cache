@@ -32,7 +32,15 @@
 		on:submit|preventDefault={handleSearch}
 	>
 		<div
-			class="group cursor-pointer w-8 h-8 pt-1 pl-3 text-sm border-2 border-r-0 rounded-l-full outline-none border-slate-300"
+			class="group cursor-pointer w-8 h-8 pt-[6px] pl-3 text-sm border-2 border-r-0 rounded-l-full outline-none border-slate-300
+			text-skin-inverted hover:text-skin-selected
+				bg-[#e7e7f5] p-[2px] border-none						
+				shadow-[1px_1px_2px_rgba(163,177,198,0.4),-2px_-2px_4px_rgba(255,255,255,0.9)]
+				hover:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.9),-2px_-2px_4px_rgba(255,255,255,0.4)] hover:brightness-105
+				dark:bg-[#515151]
+				dark:shadow-[2px_2px_4px_#101114,-2px_-2px_6px_#24252a]
+				dark:hover:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.9),-2px_-2px_4px_rgba(0,0,0,1.0)]
+				dark:hover:bg-[#4d4d4d]"
 		>
 			<svelte:component this={selectedMedia.component} />
 			<div
@@ -52,7 +60,15 @@
 		</div>
 		<input
 			label="search"
-			class="w-24 h-8 px-2 text-lg bg-transparent border-2 text-white border-l-0 rounded-r-full outline-none lg:w-48 placeholder-text-skin-inverted::placeholder border-slate-300"
+			class="p-[2px] w-24 h-8 px-2 text-lg bg-transparent border-2 text-white border-l-0 rounded-r-full 
+			outline-none lg:w-48 placeholder-text-skin-inverted::placeholder border-slate-300 
+				bg-[#e7e7f5] border-none						
+				shadow-[1px_1px_2px_rgba(163,177,198,0.4),-2px_-2px_4px_rgba(255,255,255,0.9)]
+				hover:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.9),-2px_-2px_4px_rgba(255,255,255,0.4)] hover:brightness-105
+				dark:bg-[#515151]
+				dark:shadow-[2px_2px_4px_#101114,-2px_-2px_6px_#24252a]
+				dark:hover:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.9),-2px_-2px_4px_rgba(0,0,0,1.0)]
+				dark:hover:bg-[#4d4d4d]"
 			type="text"
 			placeholder="Search..."
 			bind:value={searchTerm}

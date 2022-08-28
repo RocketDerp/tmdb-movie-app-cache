@@ -12,7 +12,6 @@
 	}
 
 	let { season_details } = data;
-
 	let tv_id = $page.params.id;
 </script>
 
