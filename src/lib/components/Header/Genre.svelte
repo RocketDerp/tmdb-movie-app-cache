@@ -3,13 +3,9 @@
 	import { tv_genres, movie_genres, selected } from '$lib/stores/store';
 </script>
 
-<div
-	class="w-full text-skin-inverted neumorph dark:neumorphdark"
->
+<div class="w-full text-skin-inverted neumorph dark:neumorphdark">
 	<div class="flex flex-row p-1 ">
-		<div
-			class="flex flex-col p-1 m-1 p-[2px] neumorph  dark:neumorphdark"
-		>
+		<div class="flex flex-col p-1 m-1 p-[2px] neumorph  dark:neumorphdark">
 			<h6 class="flex flex-row text-skin-primary">
 				<span class="mr-2">
 					<svg
@@ -32,7 +28,8 @@
 					<li class="flex">
 						<button
 							aria-label={genre.name}
-							class="block p-1 hover:bg-skin-primary text-skin-inverted hover:text-skin-selected whitespace-nowrap neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+							class="block p-1 hover:bg-skin-primary text-skin-inverted hover:text-skin-selected whitespace-nowrap 
+							neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
 							on:click|preventDefault={() => {
 								$selected = genre.id;
 								goto(`/genre/movie/${genre.id}`);
