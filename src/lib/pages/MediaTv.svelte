@@ -5,7 +5,7 @@
 	import Seasons from '$lib/utilities/Seasons.svelte';
 	import Watchers from '$lib/components/Watchers.svelte';
 
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
 	export let tv_details: TvAppendType;
 	export let tv_id: number;

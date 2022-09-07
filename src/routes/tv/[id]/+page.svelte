@@ -8,9 +8,7 @@
 	if (errors) {
 		console.log('ERRORS', errors);
 	}
-
-	let { tv_details } = data;
-	let tv_id = $page.params.id as unknown as number;
+	$: tv_id = $page.params.id as unknown as number;
 </script>
 
-<TvMedia {tv_details} {tv_id} />
+<TvMedia tv_details={data.tv_details} {tv_id} />

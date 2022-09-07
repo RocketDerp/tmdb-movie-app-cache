@@ -11,6 +11,7 @@
 		console.log('ERRORS', errors);
 	}
 	$: media_type = $page.params.media as unknown as MediaType;
+	
 
 	$selected = null;
 </script>

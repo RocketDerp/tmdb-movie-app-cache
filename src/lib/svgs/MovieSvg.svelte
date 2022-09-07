@@ -1,5 +1,5 @@
 <svg
-	class=" w-5 h-5 fill-inverted group-hover:fill-selected"
+	class=" w-5 h-5 fill-inverted group-hover:fill-selected "
 	aria-hidden="true"
 	role="img"
 	preserveAspectRatio="xMidYMid meet"

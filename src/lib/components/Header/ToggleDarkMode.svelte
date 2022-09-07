@@ -8,7 +8,7 @@
 <div class="flex justify-center w-8 h-8 mr-2 align-middle">
 	<button
 		class="
-		bg-[#e7e7f5] p-[2px] rounded-full p-[2px_4px]					
+		bg-[#e7e7f5] p-[2px] rounded-2 p-[2px_4px]					
 		neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
 		aria-label="Toggle Light and Dark mode"
 		on:click|preventDefault={() => {

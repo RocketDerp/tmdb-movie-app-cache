@@ -1,8 +1,8 @@
 import { error } from "@sveltejs/kit";
 
-const api: string = import.meta.env.VITE_API_KEY
-const GENRES_TV_API = `https://api.themoviedb.org/3/genre/tv/list?api_key=${api}&language-en-GB`;
-const GENRES_MOVIE_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${api}&language-en-GB`;
+import { API_KEY } from '$env/static/private';
+const GENRES_TV_API = `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language-en-GB`;
+const GENRES_MOVIE_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language-en-GB`;
 
 export const load = async () => {
     try {
@@ -11,14 +11,10 @@ export const load = async () => {
 
         const response_movie = await fetch(GENRES_MOVIE_API)
         const movie_genre: Genre[] = (await (response_movie.json())).genres
-        console.log("==================fetching genres================")
-
-        const localTheme = ''
 
         return {
             tv_genre,
-            movie_genre,
-            localTheme
+            movie_genre
         }
     }
     catch {

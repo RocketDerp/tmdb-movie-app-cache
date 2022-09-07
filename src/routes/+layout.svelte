@@ -16,7 +16,7 @@
 		console.log('ERRORS', errors);
 	}
 
-	let localTheme: string = data.localTheme;
+	let localTheme: string;
 
 	onMount(() => {
 		// We load theme in the <script> tag in layout.ts load, but then also here onMount to setup stores

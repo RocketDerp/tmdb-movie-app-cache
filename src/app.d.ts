@@ -7,10 +7,12 @@ declare namespace App {
 		theme: string | null
 	}
 }
-
-interface ImportMetaEnv {
-	API: string;
+declare namespace svelte.JSX {
+	interface HTMLAttributes<T> {
+		onoutclick?: (e: CustomEvent) => void
+	}
 }
+
 interface Theme {
 	mode: 'Dark' | 'Light' | 'System'
 }

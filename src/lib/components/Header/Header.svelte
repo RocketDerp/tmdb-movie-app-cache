@@ -1,8 +1,9 @@
 <script lang="ts">
-	import Search from '$lib/components/Header/Search.svelte';
+	// import Search from '$lib/components/Header/Search.svelte';
 	import Selector from '$lib/components/Header/Selector.svelte';
 	import { goto } from '$app/navigation';
 	import Home from '$lib/svgs/HomeSvg.svelte';
+	import Search from '$lib/components/Header/Search.svelte';
 
 	function toggleHome() {
 		goto('/');
@@ -26,6 +27,7 @@
 			<Selector />
 		</div>
 
+		<!-- <Search /> -->
 		<Search />
 	</div>
 </header>

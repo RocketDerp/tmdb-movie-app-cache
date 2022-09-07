@@ -3,7 +3,7 @@
 	import Modal from '$lib/utilities/Modal.svelte';
 	import Cast from '$lib/components/Cast.svelte';
 	import Watchers from '$lib/components/Watchers.svelte';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
 	export let movie_details: MovieAppendType;
 

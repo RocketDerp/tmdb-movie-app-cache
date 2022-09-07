@@ -11,7 +11,10 @@
 		{#if season_details.id}
 			<h4 class="pb-2">Season Information</h4>
 			{#each season_details.episodes as episode}
-				<div class=" bg-skin-primary flex flex-col xl:flex-row m-4 p-2 rounded-lg">
+				<div
+					class=" bg-skin-primary flex flex-col xl:flex-row m-4 p-2 rounded-lg
+				neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+				>
 					<a
 						href={`/episode/${tv_id}/${season_details.season_number}/${episode.episode_number}`}
 						class="flex flex-col xl:flex-row text-skin-base xl:rounded-lg"

@@ -5,6 +5,7 @@
 
 	export let data: PageData;
 	export let errors: Errors;
+
 	if (errors) {
 		console.log('ERRORS', errors);
 	}

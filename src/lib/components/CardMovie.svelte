@@ -14,7 +14,7 @@
 			id="flip-card-front"
 			class="top-0 right-0 backface-hidden text-skin-base bg-skin-bg xl:rounded-lg"
 		>
-			<div class="h-[264] xl:h-90">
+			<div class="h-[264px] xl:h-90">
 				{#if datum.poster_path && datum.title}
 					<SrcSet image_path={datum.poster_path} image_title={datum.title} />
 				{:else}
