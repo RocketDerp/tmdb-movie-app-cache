@@ -6,7 +6,7 @@
 
 <section id="Seasons">
 	<div
-		class="max-w-7xl mx-auto text-skin-base xl:mt-5 mb-6 xl:mb-10 bg-skin-secondary xl:pl-5 pt-1 pb-1 xl:rounded-2xl"
+		class="max-w-7xl mx-auto text-skin-base xl:mt-5 mb-6 xl:mb-10 bg-skin-primary xl:pl-5 pt-1 pb-1 xl:rounded-2xl"
 	>
 		<h4 class="pb-2">Season Information</h4>
 		{#each tv_details.seasons as episode}

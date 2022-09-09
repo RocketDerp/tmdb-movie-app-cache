@@ -9,7 +9,7 @@
 		>
 			<div class=" text-xs text-skin-inverted flex flex-row items-center">
 				Built by <a
-					class=" text-xs pl-1 text-cyan-100 hover:text-skin-selected"
+					class=" text-xs pl-1 text-skin-base hover:text-skin-selected"
 					href="https:\\athena-designs.com"
 					target="_blank"
 					rel="external">Athena-Designs</a
@@ -24,8 +24,6 @@
 			<div class="h-[6px] md:h-[10px] px-2">
 				<TmdbSvg />
 			</div>
-
-			<p>API but is not endorsed or certified by TMDB</p>
 		</div>
 	</div>
 </footer>

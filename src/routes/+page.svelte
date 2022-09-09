@@ -1,10 +1,10 @@
 <script lang="ts">
 	import MainSection from '$lib/pages/MainSection.svelte';
 	import { selected } from '$lib/stores/store';
-	import type { PageData, Errors } from './$types';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
-	export let errors: Errors;
+	export let errors = null;
 
 	if (errors) {
 		console.log('ERRORS', errors);

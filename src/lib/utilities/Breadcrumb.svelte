@@ -6,8 +6,10 @@
 	console.log($page.params.season_number);
 </script>
 
-<section id="breadcrumb" class="flex xl:mt-16  xl:rounded-2xl w-full h-12 bg-skin-primary">
-	<div class="flex flex-col md:flex-row text-skin-base text-2xl items-center ml-4">
+<section id="breadcrumb" class="flex xl:mt-16  xl:rounded-2xl w-full xl:h-12 bg-skin-primary">
+	<div
+		class="flex flex-col w-full content-center md:flex-row text-skin-base text-2xl items-center ml-4"
+	>
 		<a
 			aria-label="home"
 			class="h-8 w-8 p-1 fill-inverted hover:fill-selected
@@ -22,7 +24,7 @@
 				<p class="text-sm md:text-xl mr-2">{$page.params.season_number}</p>
 				<a
 					aria-label="home"
-					class="text-sm md:text-xl mx-2 opacity-2 text-skin-inverted hover:text-skin-selected
+					class="text-sm md:text-xl px-3 mx-2 opacity-2 text-skin-inverted hover:text-skin-selected
 					neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
 					href={`/seasons/${$page.params.id}/${$page.params.season_number}`}
 					>Season {$page.params.season_number} >

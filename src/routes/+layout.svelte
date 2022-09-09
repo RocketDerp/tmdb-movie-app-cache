@@ -11,7 +11,7 @@
 	$tv_genres = data.tv_genre;
 	$movie_genres = data.movie_genre;
 
-	export let errors: Errors;
+	export let errors: Errors = null;
 	if (errors) {
 		console.log('ERRORS', errors);
 	}

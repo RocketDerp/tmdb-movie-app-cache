@@ -4,7 +4,7 @@
 	import type { PageData, Errors } from './$types';
 
 	export let data: PageData;
-	export let errors: Errors;
+	export let errors: Errors = null;
 
 	if (errors) {
 		console.log('ERRORS', errors);

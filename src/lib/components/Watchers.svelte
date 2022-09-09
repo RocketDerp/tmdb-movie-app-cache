@@ -20,7 +20,7 @@
 
 <section
 	id="watchers"
-	class="my-2 pt-1 pb-4 mx-auto max-w-7xl xl:mt-5 xl:mb-5 bg-skin-primary text-skin-base xl:pl-5 xl:rounded-2xl"
+	class="my-2 pt-1 pb-4 mx-auto max-w-7xl xl:mt-5 xl:mb-5 bg-skin-primary text-skin-base xl:px-5 xl:rounded-2xl"
 >
 	{#key activeCountryindex}
 		<div>
@@ -73,8 +73,8 @@
 		</div>
 		{#if watchers_details[i_code]}
 			{#if watchers_details[i_code].buy}
-				<h2 class="pl-4 text-lg text-skin-base">Buy</h2>
-				<div class="mt-2 mb-4 flex flex-row flex-wrap">
+				<h2 class="text-lg text-skin-base">Buy</h2>
+				<div class="mt-1 mb-4 flex py-4 rounded-2xl flex-row flex-wrap w-full bg-black">
 					{#each watchers_details[i_code].buy as buy}
 						<div class="pb-2 w-28 flex flex-col items-center">
 							<img
@@ -88,8 +88,8 @@
 				</div>
 			{/if}
 			{#if watchers_details[i_code].rent}
-				<h2 class="pl-4 text-lg text-skin-base ">Rent</h2>
-				<div class="mt-2 mb-4 flex flex-row flex-wrap">
+				<h2 class="text-lg text-skin-base ">Rent</h2>
+				<div class="mt-1 mb-4 flex py-4 rounded-2xl flex-row flex-wrap w-full bg-black">
 					{#each watchers_details[i_code].rent as rent}
 						<div class="pb-2 w-28 flex flex-col items-center">
 							<img
@@ -103,8 +103,8 @@
 				</div>
 			{/if}
 			{#if watchers_details[i_code].flatrate}
-				<h2 class="pl-4 text-lg text-skin-base ">Subscription</h2>
-				<div class="mt-2 mb-4 flex flex-row flex-wrap">
+				<h2 class="text-lg text-skin-base ">Subscription</h2>
+				<div class="mt-1 mb-4 flex py-4 rounded-2xl flex-row flex-wrap w-full bg-black">
 					{#each watchers_details[i_code].flatrate as flatrate}
 						<div class="pb-2 w-28 flex flex-col items-center">
 							<img
