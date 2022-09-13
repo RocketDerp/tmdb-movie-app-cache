@@ -1,13 +1,10 @@
 <script lang="ts">
 	import Episode from '$lib/pages/TvEpisode.svelte';
 	import Breadcrumb from '$lib/utilities/Breadcrumb.svelte';
-	import type { PageData, Errors } from './$types';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
-	export let errors: Errors = null;
-	if (errors) {
-		console.log('ERRORS', errors);
-	}
+
 	let { episode_details } = data;
 </script>
 

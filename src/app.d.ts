@@ -4,7 +4,9 @@
 
 declare namespace App {
 	interface Locals {
-		theme: string | null
+		theme: {
+			mode: string | null
+		}
 	}
 }
 
@@ -14,8 +16,10 @@ declare namespace svelte.JSX {
 	}
 }
 
+type ThemeType = 'dark' | 'light'
+
 interface Theme {
-	mode: 'Dark' | 'Light' | 'System'
+	mode: ThemeType
 }
 
 interface MovieResponse {
@@ -354,7 +358,33 @@ type SeasonType = {
 	id: number;
 	poster_path: string | null;
 	season_number: number;
+	aggregate_credits: AggregateCredits
 };
+
+type AggregateCredits = {
+	cast: SeasonCast[]
+	crew: Crew2[]
+}
+
+type SeasonCast = {
+	adult: boolean
+	gender: number
+	id: number
+	known_for_department: string
+	name: string
+	original_name: string
+	popularity: number
+	profile_path?: string
+	roles: Role[]
+	total_episode_count: number
+	order: number
+}
+
+type Role = {
+	credit_id: string
+	character: string
+	episode_count: number
+}
 
 type EpisodesType = {
 	air_date: string;
@@ -369,7 +399,28 @@ type EpisodesType = {
 	still_path: string;
 	vote_average: number;
 	vote_count: number;
+	credits: EpisodeCredits
 };
+
+type EpisodeCredits = {
+	cast: EpisodeCast[]
+	crew: Crew2[]
+	guest_stars: GuestStar2[]
+}
+
+type EpisodeCast = {
+	adult: boolean
+	gender: number
+	id: number
+	known_for_department: string
+	name: string
+	original_name: string
+	popularity: number
+	profile_path: string
+	character: string
+	credit_id: string
+	order: number
+}
 
 type CrewType = {
 	department: string;

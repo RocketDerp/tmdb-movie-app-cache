@@ -10,12 +10,7 @@ export function toggleTheme(theme: any, $theme: any): void {
 
 function updateDocument(name: string, newMode: string, prevMode: string) {
     document.cookie = `${name}=${newMode};path=/;SameSite=strict;expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    let element = document.getElementById('core')
-    if (element != null) {
-        element.classList.remove(prevMode);
-        document.documentElement.classList.remove(prevMode);
-        element.classList.add(newMode);
-        document.documentElement.classList.add(newMode);
-    }
+    document.documentElement.classList.remove(prevMode);
+    document.documentElement.classList.add(newMode);
 }
 export { }

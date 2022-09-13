@@ -1,9 +1,9 @@
-import type { RequestHandler } from "@sveltejs/kit";
+import type { RequestHandler } from "./$types";
 import { error } from "@sveltejs/kit";
 
 import { API_KEY } from '$env/static/private';
 
-interface GenreRequest extends Request {
+type BodyType = {
 	media: MediaType
 	genre: number
 	page: number
@@ -11,8 +11,8 @@ interface GenreRequest extends Request {
 
 export const POST: RequestHandler = async ({ request }) => {
 	try {
-		const body: GenreRequest = await request.json();
-		const api_url = `https://api.themoviedb.org/3/discover/${body["media"]}?api_key=${API_KEY}&with_genres=${body["genre"]}&page=${body["page"]}`
+		const body: BodyType = await request.json();
+		const api_url = `https://api.themoviedb.org/3/discover/${body.media}?api_key=${API_KEY}&with_genres=${body.genre}&page=${body.page}`
 		const res_mov = await fetch(api_url)
 		const res = (await res_mov.json()).results
 		return new Response(String(JSON.stringify(res)));

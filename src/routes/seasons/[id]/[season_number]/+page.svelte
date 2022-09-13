@@ -1,15 +1,10 @@
 <script lang="ts">
 	import Season from '$lib/pages/TvSeason.svelte';
 	import { page } from '$app/stores';
-	import type { PageData, Errors } from './$types';
+	import type { PageData } from './$types';
 	import Breadcrumb from '$lib/utilities/Breadcrumb.svelte';
 
 	export let data: PageData;
-	export let errors: Errors = null;
-
-	if (errors) {
-		console.log('ERRORS', errors);
-	}
 
 	let { season_details } = data;
 	let tv_id = $page.params.id;

@@ -1,6 +1,6 @@
 <script>
 	import { theme } from '$lib/stores/store';
-	import { toggleTheme } from '$lib/stores/theme';
+	import { toggleTheme } from '$lib/components/Header/toggleTheme';
 	import Sun from '$lib/svgs/Sun.svelte';
 	import Moon from '$lib/svgs//Moon.svelte';
 </script>

@@ -26,9 +26,9 @@ export const createWritableStore = (key: string, startValue: any): any => {
         subscribe,
         set,
         useLocalStorage: () => {
-            const json = localStorage.getItem(key);
-            if (json) {
-                set(JSON.parse(json));
+            const theme = localStorage.getItem(key);
+            if (theme) {
+                set(JSON.parse(theme));
             }
 
             subscribe((current) => {
@@ -38,4 +38,4 @@ export const createWritableStore = (key: string, startValue: any): any => {
     };
 };
 
-export const theme = createWritableStore('theme', { mode: 'dark' })
+export const theme = createWritableStore('theme', { mode: 'light' })

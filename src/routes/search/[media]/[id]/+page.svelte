@@ -1,14 +1,9 @@
 <script lang="ts">
 	import MainSection from '$lib/pages/MainSection.svelte';
 	import { page } from '$app/stores';
-	import type { PageData, Errors } from './$types';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
-	export let errors: Errors = null;
-
-	if (errors) {
-		console.log('ERRORS', errors);
-	}
 
 	$: media_type = $page.params.media as unknown as MediaType;
 	$: searching = $page.params.id as unknown as string;

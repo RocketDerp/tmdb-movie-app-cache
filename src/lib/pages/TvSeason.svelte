@@ -1,8 +1,38 @@
 <script lang="ts">
+	import CarouselPerson from '$lib/components/CarouselPerson.svelte';
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
 	export let season_details: SeasonType;
 	export let tv_id: string;
+	let cast: SeasonCast[] = [];
+	$: {
+		cast = season_details.aggregate_credits.cast;
+	}
 </script>
+
+{#if cast.length}
+	<section
+		id="people"
+		class="my-2 pt-1 mx-auto max-w-7xl xl:mt-5 mb-10 bg-skin-primary xl:pl-5 pb-5 xl:rounded-2xl"
+	>
+		<h3
+			class="flex justify-center text-2xl font-bold text-skin-base xl:inline-block xl:justify-start xl:my-5"
+		>
+			Season Cast
+		</h3>
+		<div
+			class="relative flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:overflow-y-hidden"
+		>
+			{#each cast as person}
+				<CarouselPerson
+					profile_path={person?.profile_path || ''}
+					id={person.id}
+					name={person.name}
+					role={person.roles[0].character}
+				/>
+			{/each}
+		</div>
+	</section>
+{/if}
 
 <section id="season">
 	<div

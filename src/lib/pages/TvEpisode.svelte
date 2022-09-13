@@ -2,6 +2,12 @@
 	export let episode_details: EpisodesType;
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w300';
 	import CarouselPerson from '$lib/components/CarouselPerson.svelte';
+
+	let cast: EpisodeCast[] = [];
+	$: {
+		cast = episode_details.credits.cast;
+		console.log('cast', cast);
+	}
 </script>
 
 <section id="episode">
@@ -38,7 +44,30 @@
 		{/if}
 	</div>
 </section>
-
+{#if cast.length}
+	<section
+		id="episode cast"
+		class="my-2 pt-1 mx-auto max-w-7xl xl:mt-5 mb-10 bg-skin-primary xl:pl-5 pb-5 xl:rounded-2xl"
+	>
+		<h3
+			class="flex justify-center text-2xl font-bold text-skin-base xl:inline-block xl:justify-start xl:my-5"
+		>
+			Episode Cast
+		</h3>
+		<div
+			class="relative flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:overflow-y-hidden"
+		>
+			{#each cast as person}
+				<CarouselPerson
+					profile_path={person?.profile_path || ''}
+					id={person.id}
+					name={person.name}
+					role={person.character}
+				/>
+			{/each}
+		</div>
+	</section>
+{/if}
 {#if episode_details.guest_stars.length}
 	<section
 		id="guest stars"

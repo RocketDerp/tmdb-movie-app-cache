@@ -4,29 +4,24 @@
 	import { theme } from '$lib/stores/store';
 	import Header from '$lib/components/Header/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import type { LayoutData, Errors } from './$types';
+	import type { LayoutData } from './$types';
 	import { tv_genres, movie_genres } from '$lib/stores/store';
 
 	export let data: LayoutData;
 	$tv_genres = data.tv_genre;
 	$movie_genres = data.movie_genre;
 
-	export let errors: Errors = null;
-	if (errors) {
-		console.log('ERRORS', errors);
-	}
-
-	let localTheme: string;
+	// let localTheme: ThemeType;
 
 	onMount(() => {
 		// We load theme in the <script> tag in layout.ts load, but then also here onMount to setup stores
 		if (!('theme' in localStorage)) {
 			theme.useLocalStorage();
 			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				localTheme = 'dark';
+				// localTheme = 'dark';
 				theme.set({ ...$theme, mode: 'dark' });
 			} else {
-				localTheme = 'light';
+				// localTheme = 'light';
 				theme.set({ ...$theme, mode: 'light' });
 			}
 		} else {
@@ -43,9 +38,9 @@
 				document.cookie =
 					'theme=dark;path=/;SameSite=strict;expires=Fri, 31 Dec 9999 23:59:59 GMT;';
 			} else {
-				document.documentElement.classList.remove('dark');
+				document.documentElement.classList.add('light');
 				document.cookie =
-					'theme=light;path=/;SameSite=strict;expires=Fri, 31 Dec 9999 23:59:59 GMT;';
+					'theme=light;path=/;SameSite=strict;expires=Thu, 30 Dec 9999 23:59:59 GMT;';
 			}
 		} else {
 			if (localStorage.getItem('theme')) {
@@ -57,7 +52,7 @@
 	<title>TMDB on Sveltekit</title>
 </svelte:head>
 
-<main id="core" class={localTheme}>
+<main id="core">
 	<div class="fixed top-0 w-full min-h-screen -z-50 bg-skin-bg" />
 
 	<Header />
