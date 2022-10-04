@@ -3,8 +3,8 @@
 	import DummyPerson from '$lib/svgs/DummyPerson.svelte';
 
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
-	export let person: PersonType;
-	export let knownFor: KnownForType[];
+	export let person: PersonAppendType;
+	let knownFor = person.combined_credits.cast;
 </script>
 
 <section id="person" class="md:rounded-2xl mx-auto max-w-7xl md:pb-20 md:mt-5">

@@ -4,10 +4,8 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-
-	let { episode_details } = data;
 </script>
 
-<Breadcrumb title={episode_details.name} />
+<Breadcrumb title={data.episode_details.name} />
 
-<Episode {episode_details} />
+<Episode episode_details={data.episode_details} />

@@ -293,6 +293,12 @@ interface MovieAppendType extends MovieType {
 	}
 }
 
+interface PersonAppendType extends PersonType {
+	combined_credits: {
+		cast: KnownForType[]
+	}
+}
+
 type Data = {
 	cast: PersonType[];
 };
@@ -512,8 +518,4 @@ interface EpisodeRequest extends Load {
 	season_number: number
 	episode_number: number
 	id: number
-
 }
-
-
-

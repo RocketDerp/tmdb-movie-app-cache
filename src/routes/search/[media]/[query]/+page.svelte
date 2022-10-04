@@ -6,7 +6,7 @@
 	export let data: PageData;
 
 	$: media_type = $page.params.media as unknown as MediaType;
-	$: searching = $page.params.id as unknown as string;
+	$: searching = $page.params.query as unknown as string;
 </script>
 
 {#key $page.url}

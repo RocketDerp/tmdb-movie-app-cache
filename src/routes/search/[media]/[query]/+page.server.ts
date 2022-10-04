@@ -5,7 +5,7 @@ import { API_KEY } from '$env/static/private';
 
 export const load: PageServerLoad = async ({ params }) => {
     try {
-        const url = `https://api.themoviedb.org/3/search/${params.media}?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${params.id}`
+        const url = `https://api.themoviedb.org/3/search/${params.media}?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${params.query}`
         const response = await fetch(url);
         const media_response: ShowResponse | MovieResponse | PersonResponse = await response.json();
         return {

@@ -4,8 +4,8 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	
-	let { person, knownFor } = data;
+
+	let { person } = data;
 </script>
 
-<Person {person} {knownFor} />
+<Person {person} />

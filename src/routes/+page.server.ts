@@ -2,6 +2,8 @@ import { error } from "@sveltejs/kit";
 
 import { API_KEY } from '$env/static/private';
 
+
+
 export const load = async () => {
     try {
         const url = `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-GB&page=1`;
@@ -13,6 +15,6 @@ export const load = async () => {
         }
     }
     catch {
-        throw error(400, 'not found');
+        throw error(400, 'network error, tv and movie request failure');
     }
 }

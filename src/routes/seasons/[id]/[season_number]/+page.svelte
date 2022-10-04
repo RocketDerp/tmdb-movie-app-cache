@@ -5,10 +5,7 @@
 	import Breadcrumb from '$lib/utilities/Breadcrumb.svelte';
 
 	export let data: PageData;
-
-	let { season_details } = data;
-	let tv_id = $page.params.id;
 </script>
 
-<Breadcrumb title={season_details.name} />
-<Season {season_details} {tv_id} />
+<Breadcrumb title={data.season_details.name} />
+<Season season_details={data.season_details} tv_id={$page.params.id} />

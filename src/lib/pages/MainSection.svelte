@@ -36,41 +36,11 @@
 	async function moreData() {
 		let res: Response;
 		if (searching) {
-			res = await fetch('../../api/postSearch', {
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				method: 'POST',
-				body: JSON.stringify({
-					media: media_type,
-					query: searching,
-					page: current_page
-				})
-			});
-			console.log(res);
+			res = await fetch(`../../api/postSearch/${media_type}/${searching}/${current_page}`);
 		} else if (genres === undefined) {
-			res = await fetch('../api/postShow', {
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				method: 'POST',
-				body: JSON.stringify({
-					media: media_type,
-					page: current_page
-				})
-			});
+			res = await fetch(`../api/postShow/${media_type}/${current_page}`);
 		} else {
-			res = await fetch('../../api/postShowGenre', {
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				method: 'POST',
-				body: JSON.stringify({
-					media: media_type,
-					page: current_page,
-					genre: genres
-				})
-			});
+			res = await fetch(`../../api/postShowGenre/${media_type}/${genres}/${current_page}`);
 		}
 
 		const res_results = await res.json();
