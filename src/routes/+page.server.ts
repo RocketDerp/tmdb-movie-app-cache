@@ -1,8 +1,5 @@
 import { error } from "@sveltejs/kit";
-
 import { API_KEY } from '$env/static/private';
-
-
 
 export const load = async () => {
     try {

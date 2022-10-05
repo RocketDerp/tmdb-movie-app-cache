@@ -4,44 +4,44 @@
 @tailwind utilities;
 
 @layer components {
-	.neumorph{
+	.neumorph {
 		background: var(--color-shadow-bg);
 		border: none;
-		box-shadow: 1px 1px 2px var(--color-shadow-1), -2px -2px 4px var(--color-shadow-2);					
-	},
-	
-	.neumorphhover{
+		box-shadow: 1px 1px 2px var(--color-shadow-1), -2px -2px 4px var(--color-shadow-2);
+	}
+
+	,
+	.neumorphhover {
 		box-shadow: inset 2px 2px 4px var(--color-shadow-3), -2px -2px 4px var(--color-shadow-4);
 		filter: brightness(1.05);
 	}
 	.neumorphdark {
 		background: var(--color-shadow-bg);
-		box-shadow: 2px 2px 4px var(--color-shadow-1),-2px -2px 6px var(--color-shadow-2);
+		box-shadow: 2px 2px 4px var(--color-shadow-1), -2px -2px 6px var(--color-shadow-2);
 	}
 	.neumorphdarkhover {
-		box-shadow: inset 2px 2px 4px var(--color-shadow-3),-2px -2px 4px var(--color-shadow-4);
+		box-shadow: inset 2px 2px 4px var(--color-shadow-3), -2px -2px 4px var(--color-shadow-4);
 		background: #4d4d4d;
 	}
 }
 
-
 @layer base {
-	.light {	
+	.light {
 		--color-text-base: #120f0f;
 		--color-text-muted: #472c3b;
-		--color-text-inverted: #4f4949;;
+		--color-text-inverted: #4f4949;
 		--color-text-muted-inverted: #521111;
 		--color-text-selected: #e22dc5;
 		--color-bg: #ecedf4;
-		--color-primary: #e3e3f1;;
+		--color-primary: #e3e3f1;
 		--color-secondary: #a8b0b7;
 		--color-tertiary: #80a9c8;
 		--color-border: #d9d4cf;
-		--color-shadow-bg:#e7e7f5;
-		--color-shadow-1: rgba(163,177,198,0.4);
-		--color-shadow-2: rgba(255,255,255,0.9);
-		--color-shadow-3: rgba(163,177,198,0.9);
-		--color-shadow-4: rgba(255,255,255,0.4);
+		--color-shadow-bg: #e7e7f5;
+		--color-shadow-1: rgba(163, 177, 198, 0.4);
+		--color-shadow-2: rgba(255, 255, 255, 0.9);
+		--color-shadow-3: rgba(163, 177, 198, 0.9);
+		--color-shadow-4: rgba(255, 255, 255, 0.4);
 	}
 
 	.dark {
@@ -51,26 +51,24 @@
 		--color-text-muted-inverted: #616161;
 		--color-text-selected: #e6e441;
 		--color-bg: #000000;
-		--color-primary: #515151;;
-		--color-secondary: #3a3a3a;;
+		--color-primary: #515151;
+		--color-secondary: #3a3a3a;
 		--color-tertiary: #1c1c1c;
 		--color-border: #1d536d;
-		--color-shadow-bg:#515151;
+		--color-shadow-bg: #515151;
 		--color-shadow-1: rgba(16, 17, 20, 0.4);
 		--color-shadow-2: rgba(36, 37, 42, 1);
-		--color-shadow-3: rgba(0,0,0,0.9);
-		--color-shadow-4: rgba(0,0,0,0.4);
+		--color-shadow-3: rgba(0, 0, 0, 0.9);
+		--color-shadow-4: rgba(0, 0, 0, 0.4);
 	}
-
-
 
 	@font-face {
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 300;
-		src: url('/fonts/poppins/Poppins-Regular.ttf'); 
+		src: url('/fonts/poppins/Poppins-Regular.ttf');
 		src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
-		font-display: swap;			
+		font-display: swap;
 	}
 
 	h1 {

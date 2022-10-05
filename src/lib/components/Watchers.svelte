@@ -47,7 +47,7 @@
 						<ul
 							class="fixed left-0 cursor-pointer hidden rounded bg-skin-primary absolute text-skin-base group-hover:block"
 						>
-							{#each CountryCode as country, index}
+							{#each CountryCode as { component, name }, index}
 								<li
 									on:click={() => (activeCountryindex = index)}
 									class="justify-center pt-[7px] mx-3"
@@ -58,11 +58,9 @@
 									"
 									>
 										<div class="w-4 h-3">
-											<svelte:component this={country.component} />
+											<svelte:component this={component} />
 										</div>
-										<span class="pl-2 hover:text-skin-selected text-skin-inverted"
-											>{country.name}</span
-										>
+										<span class="pl-2 hover:text-skin-selected text-skin-inverted">{name}</span>
 									</div>
 								</li>
 							{/each}

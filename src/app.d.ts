@@ -5,9 +5,12 @@
 declare namespace App {
 	interface Locals {
 		theme: {
-			mode: string | null
+			mode: string
 		}
 	}
+}
+interface Theme {
+	mode: ThemeType
 }
 
 declare namespace svelte.JSX {
@@ -18,9 +21,24 @@ declare namespace svelte.JSX {
 
 type ThemeType = 'dark' | 'light'
 
-interface Theme {
-	mode: ThemeType
-}
+type Media = {
+	genres: [Genre];
+};
+
+type MediaPlatform = 'movie' | 'tv';
+
+type MediaType = 'movie' | 'tv' | 'person' | 'all';
+
+type Genre = {
+	id: number;
+	name: string;
+};
+
+type Genres = {
+	[Key in MediaPlatform]: Genre[];
+};
+
+
 
 interface MovieResponse {
 	page: number;
@@ -50,6 +68,36 @@ interface AllResponse {
 	results: AllResult[]
 	total_pages: number
 	total_results: number
+}
+
+interface TvAppendType extends TvType {
+	videos: {
+		results: TrailerType[]
+	},
+	credits: {
+		cast: CastType[]
+	},
+	'watch/providers': {
+		results: WatchersType
+	}
+}
+
+interface MovieAppendType extends MovieType {
+	videos: {
+		results: TrailerType[]
+	},
+	credits: {
+		cast: CastType[]
+	},
+	'watch/providers': {
+		results: WatchersType
+	}
+}
+
+interface PersonAppendType extends PersonType {
+	combined_credits: {
+		cast: KnownForType[]
+	}
 }
 
 interface AllResult {
@@ -110,6 +158,19 @@ interface ShowResult {
 	origin_country: string[];
 }
 
+interface PersonResult {
+	adult: boolean;
+	id: number;
+	name: string;
+	original_name: string;
+	media_type: string;
+	popularity: number;
+	gender: number;
+	known_for_department: string;
+	profile_path: string;
+	known_for: KnownFor[];
+}
+
 interface KnownFor {
 	adult: boolean;
 	backdrop_path: string;
@@ -132,50 +193,11 @@ interface KnownFor {
 	origin_country: string[];
 }
 
-interface PersonResult {
-	adult: boolean;
-	id: number;
-	name: string;
-	original_name: string;
-	media_type: string;
-	popularity: number;
-	gender: number;
-	known_for_department: string;
-	profile_path: string;
-	known_for: KnownFor[];
-}
-
-type CountryCodeType = 'AE' | 'AR' | 'AT' | 'AU' | 'BA' | 'BE' | 'BG' | 'BO' | 'BR' | 'CA' | 'CH' | 'CL' | 'CO' | 'CR' | 'CZ' | 'DE' | 'DK' | 'DO' | 'EC' | 'EE' | 'EG' | 'ES' | 'FI' | 'FR' | 'GB' | 'GR' | 'GT' | 'HK' | 'HN' | 'HR' | 'HU' | 'ID' | 'IE' | 'IN' | 'IS' | 'IT' | 'JM' | 'JP' | 'KR' | 'LT' | 'LV' | 'MD' | 'MX' | 'MY' | 'NL' | 'NO' | 'NZ' | 'PA' | 'PE' | 'PH' | 'PK' | 'PL' | 'PT' | 'PY' | 'RO' | 'SA' | 'SE' | 'SG' | 'SK' | 'SM' | 'SV' | 'TH' | 'TR' | 'TW' | 'US' | 'UY' | 'VE' | 'ZA'
-
-type WatchersType = Record<CountryCodeType, CountryWatch>
-
-interface CountryWatch {
-	link: string
-	rent: Provider[]
-	buy: Provider[]
-	flatrate: Provider[]
-}
-
-interface Provider {
-	display_priority: number
-	logo_path: string
-	provider_id: number
-	provider_name: string
-}
 
 
-type Media = {
-	genres: [Genre];
-};
 
-type MediaPlatform = 'movie' | 'tv';
 
-type MediaType = 'movie' | 'tv' | 'person' | 'all';
 
-type Genre = {
-	id: number;
-	name: string;
-};
 
 type Network = {
 	display_priority: number;
@@ -184,9 +206,7 @@ type Network = {
 	provider_id: number;
 }
 
-type Genres = {
-	[Key in MediaPlatform]: Genre[];
-};
+
 
 type DataType = MovieType | TvType | PersonType
 
@@ -269,39 +289,10 @@ type TvType = {
 	vote_count: number;
 };
 
-interface TvAppendType extends TvType {
-	videos: {
-		results: TrailerType[]
-	},
-	credits: {
-		cast: CastType[]
-	},
-	'watch/providers': {
-		results: WatchersType
-	}
-}
-
-interface MovieAppendType extends MovieType {
-	videos: {
-		results: TrailerType[]
-	},
-	credits: {
-		cast: CastType[]
-	},
-	'watch/providers': {
-		results: WatchersType
-	}
-}
-
-interface PersonAppendType extends PersonType {
-	combined_credits: {
-		cast: KnownForType[]
-	}
-}
-
 type Data = {
 	cast: PersonType[];
 };
+
 type ProductionCompanies = {
 	name: string;
 	id: number;
@@ -518,4 +509,22 @@ interface EpisodeRequest extends Load {
 	season_number: number
 	episode_number: number
 	id: number
+}
+
+type CountryCodeType = 'AE' | 'AR' | 'AT' | 'AU' | 'BA' | 'BE' | 'BG' | 'BO' | 'BR' | 'CA' | 'CH' | 'CL' | 'CO' | 'CR' | 'CZ' | 'DE' | 'DK' | 'DO' | 'EC' | 'EE' | 'EG' | 'ES' | 'FI' | 'FR' | 'GB' | 'GR' | 'GT' | 'HK' | 'HN' | 'HR' | 'HU' | 'ID' | 'IE' | 'IN' | 'IS' | 'IT' | 'JM' | 'JP' | 'KR' | 'LT' | 'LV' | 'MD' | 'MX' | 'MY' | 'NL' | 'NO' | 'NZ' | 'PA' | 'PE' | 'PH' | 'PK' | 'PL' | 'PT' | 'PY' | 'RO' | 'SA' | 'SE' | 'SG' | 'SK' | 'SM' | 'SV' | 'TH' | 'TR' | 'TW' | 'US' | 'UY' | 'VE' | 'ZA'
+
+type WatchersType = Record<CountryCodeType, CountryWatch>
+
+interface CountryWatch {
+	link: string
+	rent: Provider[]
+	buy: Provider[]
+	flatrate: Provider[]
+}
+
+interface Provider {
+	display_priority: number
+	logo_path: string
+	provider_id: number
+	provider_name: string
 }

@@ -1,4 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
+import { movie_genre, tv_genre } from '$lib/server/getGenres'
+//calls getGenres on server start up
 
 export const handle: Handle = async ({ event, resolve }) => {
     let theme = event.cookies.get('theme');
