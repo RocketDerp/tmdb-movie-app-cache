@@ -125,6 +125,9 @@
 
 <Watchers {watchers_details} />
 
-<Cast {cast_details} />
+<Cast {cast_details} title={'Top Billed Cast'} />
+<Cast cast_details={movie_details.credits.crew} title={'Crew'} />
 
 <Modal bind:this={modal} {trailer_key} {video_site} />
+
+<div class="mb-10" />

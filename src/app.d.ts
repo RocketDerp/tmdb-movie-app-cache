@@ -76,6 +76,7 @@ interface TvAppendType extends TvType {
 	},
 	credits: {
 		cast: CastType[]
+		crew: CastType[]
 	},
 	'watch/providers': {
 		results: WatchersType
@@ -88,6 +89,7 @@ interface MovieAppendType extends MovieType {
 	},
 	credits: {
 		cast: CastType[]
+		crew: CastType[]
 	},
 	'watch/providers': {
 		results: WatchersType
@@ -359,8 +361,9 @@ type SeasonType = {
 };
 
 type AggregateCredits = {
-	cast: SeasonCast[]
-	crew: Crew2[]
+	cast: CastType[]
+	crew: CastType[]
+	guest_stars: CastType[]
 }
 
 type SeasonCast = {
@@ -386,8 +389,8 @@ type Role = {
 type EpisodesType = {
 	air_date: string;
 	episode_number: number;
-	crew: CrewType[];
-	guest_stars: GuestType[];
+	crew: CastType[];
+	guest_stars: CastType[];
 	id: number;
 	name: string;
 	overview: string;
@@ -400,9 +403,9 @@ type EpisodesType = {
 };
 
 type EpisodeCredits = {
-	cast: EpisodeCast[]
-	crew: Crew2[]
-	guest_stars: GuestStar2[]
+	cast: CastType[]
+	crew: CastType[]
+	guest_stars: CastType[]
 }
 
 type EpisodeCast = {
@@ -465,6 +468,8 @@ type CastType = {
 	original_name: string;
 	id: number;
 	genre_ids: Array<number>;
+	department: string;
+	job: string;
 	character: string;
 	name: string;
 	profile_path: string;

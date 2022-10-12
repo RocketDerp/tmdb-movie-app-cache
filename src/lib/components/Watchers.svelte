@@ -30,44 +30,45 @@
 				<h3 class="text-skin-base flex justify-center text-xl font-bold xl:text-2xl ">
 					Where to watch
 				</h3>
-
-				<div class="flex-end group relative z-50 mt-2 mr-8 flex justify-end xl:mt-0">
-					<!-- dropdown -->
-					<div
-						class="text-skin-inverted hover:text-skin-selected neumorph 
+				<div class="flex justify-end">
+					<div class="group relative z-10 mt-2 mr-8 xl:mt-0">
+						<!-- dropdown -->
+						<div
+							class="text-skin-inverted hover:text-skin-selected neumorph 
 						group-hover:neumorphhover dark:neumorphdark dark:group-hover:neumorphhover w-44 "
-					>
-						<!-- dropdown button  -->
-						<div class="flex flex-row items-center justify-center">
-							<div class="h-3 w-4">
-								<svelte:component this={CountryCode[activeCountryindex].component} />
-							</div>
-							<span class="pl-2 ">{CountryCode[activeCountryindex].name}</span>
-						</div>
-
-						<!-- dropdown content  -->
-						<ul
-							class="bg-skin-primary text-skin-base absolute left-0 hidden cursor-pointer rounded group-hover:block"
 						>
-							{#each CountryCode as { component, name }, index}
-								<li
-									on:keydown
-									on:click={() => (activeCountryindex = index)}
-									class="mx-3 justify-center pt-[7px]"
-								>
-									<div
-										class="w-38 neumorph hover:neumorphhover dark:neumorphdark 
+							<!-- dropdown button  -->
+							<div class="flex flex-row items-center justify-center">
+								<div class="h-3 w-4">
+									<svelte:component this={CountryCode[activeCountryindex].component} />
+								</div>
+								<span class="pl-2 ">{CountryCode[activeCountryindex].name}</span>
+							</div>
+
+							<!-- dropdown content  -->
+							<ul
+								class="bg-skin-primary text-skin-base absolute left-0 hidden cursor-pointer rounded group-hover:block"
+							>
+								{#each CountryCode as { component, name }, index}
+									<li
+										on:keydown
+										on:click={() => (activeCountryindex = index)}
+										class=" mx-3 justify-center pt-[7px]"
+									>
+										<div
+											class="w-38 neumorph hover:neumorphhover dark:neumorphdark 
 										dark:hover:neumorphhover flex flex-row items-center
 									"
-									>
-										<div class="h-3 w-4">
-											<svelte:component this={component} />
+										>
+											<div class="h-3 w-4">
+												<svelte:component this={component} />
+											</div>
+											<span class="hover:text-skin-selected text-skin-inverted pl-2">{name}</span>
 										</div>
-										<span class="hover:text-skin-selected text-skin-inverted pl-2">{name}</span>
-									</div>
-								</li>
-							{/each}
-						</ul>
+									</li>
+								{/each}
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -75,7 +76,7 @@
 		{#if watchers_details[i_code]}
 			{#if watchers_details[i_code].buy}
 				<h2 class="text-skin-base text-lg">Buy</h2>
-				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap rounded-2xl bg-black py-4">
+				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
 					{#each watchers_details[i_code].buy as buy}
 						<div class="flex w-28 flex-col items-center pb-2">
 							<img
@@ -90,7 +91,7 @@
 			{/if}
 			{#if watchers_details[i_code].rent}
 				<h2 class="text-skin-base text-lg ">Rent</h2>
-				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap rounded-2xl bg-black py-4">
+				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
 					{#each watchers_details[i_code].rent as rent}
 						<div class="flex w-28 flex-col items-center pb-2">
 							<img
@@ -105,7 +106,7 @@
 			{/if}
 			{#if watchers_details[i_code].flatrate}
 				<h2 class="text-skin-base text-lg ">Subscription</h2>
-				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap rounded-2xl bg-black py-4">
+				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
 					{#each watchers_details[i_code].flatrate as flatrate}
 						<div class="flex w-28 flex-col items-center pb-2">
 							<img
@@ -122,6 +123,10 @@
 	{/key}
 	<div class="flex flex-row items-center">
 		<h2 class="ml-2 text-sm xl:ml-0 xl:text-lg">Data supplied by</h2>
-		<img class="ml-2 h-3 xl:h-4" src="/JustWatch-logo.webp" alt="Just watch" />
+		<img
+			class="dark:bg-skin-primary ml-2 h-4 bg-slate-600"
+			src="/JustWatch-logo.webp"
+			alt="Just watch"
+		/>
 	</div>
 </section>

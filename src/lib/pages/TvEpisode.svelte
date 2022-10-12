@@ -1,9 +1,9 @@
 <script lang="ts">
 	export let episode_details: EpisodesType;
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w300';
-	import CarouselPerson from '$lib/components/CarouselPerson.svelte';
+	import Cast from '$lib/components/Cast.svelte';
 
-	let cast: EpisodeCast[] = [];
+	let cast: CastType[] = [];
 	$: {
 		cast = episode_details.credits.cast;
 	}
@@ -41,77 +41,15 @@
 		{/if}
 	</div>
 </section>
-{#if cast.length}
-	<section
-		id="episode cast"
-		class="bg-skin-primary xs:pl-2 mx-auto max-w-7xl pl-0 pt-1 pb-5 sm:mt-2 sm:pl-0 md:pl-5 xl:rounded-2xl"
-	>
-		<h3
-			class="text-skin-base flex justify-center text-2xl font-bold xl:my-5 xl:inline-block xl:justify-start"
-		>
-			Episode Cast
-		</h3>
-		<div
-			class="relative flex flex-wrap justify-center sm:flex-nowrap sm:justify-start sm:overflow-y-hidden"
-		>
-			{#each cast as person}
-				<CarouselPerson
-					profile_path={person?.profile_path || ''}
-					id={person.id}
-					name={person.name}
-					role={person.character}
-				/>
-			{/each}
-		</div>
-	</section>
-{/if}
-{#if episode_details.guest_stars.length}
-	<section
-		id="guest stars"
-		class="bg-skin-primary xs:pl-2 mx-auto max-w-7xl pt-1 pb-5 pl-0 sm:mt-2 md:pl-5 xl:rounded-2xl"
-	>
-		<h3
-			class="text-skin-base flex justify-center text-2xl font-bold xl:my-5 xl:inline-block xl:justify-start"
-		>
-			Guest Stars
-		</h3>
-		<div
-			class="relative flex flex-wrap justify-center sm:flex-nowrap sm:justify-start sm:overflow-y-hidden"
-		>
-			{#each episode_details.guest_stars as guest_star}
-				<CarouselPerson
-					profile_path={guest_star?.profile_path || ''}
-					id={guest_star.id}
-					name={guest_star.name}
-					role={guest_star.character}
-				/>
-			{/each}
-		</div>
-	</section>
+{#if episode_details?.credits?.cast?.length}
+	<Cast cast_details={episode_details.credits.cast} title={'Episode Cast'} />
 {/if}
 
-{#if episode_details.crew.length}
-	<section
-		id="crew"
-		class="bg-skin-primary xs:pl-2 mx-auto mb-10 max-w-7xl pt-1 pb-5 pl-0 sm:mt-2 md:pl-5 xl:rounded-2xl"
-	>
-		<h3
-			class="text-skin-base flex justify-center text-2xl font-bold xl:my-5 xl:inline-block xl:justify-start"
-		>
-			Crew
-		</h3>
-		<div
-			class="relative flex flex-wrap justify-center sm:flex-nowrap sm:justify-start sm:overflow-y-hidden"
-		>
-			{#each episode_details.crew as crew}
-				<CarouselPerson
-					profile_path={crew?.profile_path || ''}
-					id={crew.id}
-					name={crew.name}
-					role={crew.job}
-				/>
-			{/each}
-		</div>
-	</section>
+{#if episode_details?.guest_stars?.length}
+	<Cast cast_details={episode_details.guest_stars} title={'Guest Stars'} />
+{/if}
+
+{#if episode_details?.crew?.length}
+	<Cast cast_details={episode_details.crew} title={'Crew'} />
 {/if}
 <div class="xl:m-10" />

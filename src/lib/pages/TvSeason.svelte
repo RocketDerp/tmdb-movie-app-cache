@@ -1,59 +1,34 @@
 <script lang="ts">
-	import CarouselPerson from '$lib/components/CarouselPerson.svelte';
+	import Cast from '$lib/components/Cast.svelte';
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
 	export let season_details: SeasonType;
 	export let tv_id: string;
-	let cast: SeasonCast[] = [];
+	let cast: CastType[] = [];
 	$: {
 		cast = season_details.aggregate_credits.cast;
 	}
 </script>
 
-{#if cast.length}
-	<section
-		id="people"
-		class="my-2 pt-1 mx-auto max-w-7xl xl:mt-5 mb-10 bg-skin-primary xl:pl-5 pb-5 xl:rounded-2xl"
-	>
-		<h3
-			class="flex justify-center text-2xl font-bold text-skin-base xl:inline-block xl:justify-start xl:my-5"
-		>
-			Season Cast
-		</h3>
-		<div
-			class="relative flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:overflow-y-hidden"
-		>
-			{#each cast as person}
-				<CarouselPerson
-					profile_path={person?.profile_path || ''}
-					id={person.id}
-					name={person.name}
-					role={person.roles[0].character}
-				/>
-			{/each}
-		</div>
-	</section>
-{/if}
-
 <section id="season">
 	<div
-		class="max-w-7xl mx-auto text-skin-base xl:mt-5 mb-10 bg-skin-primary xl:pl-5 pt-1 pb-1 xl:rounded-2xl"
+		class="text-skin-base bg-skin-primary mx-auto mb-2 max-w-7xl pt-1 pb-1 xl:mt-5 xl:rounded-2xl xl:pl-5"
 	>
 		{#if season_details.id}
 			<h4 class="pb-2">Season Information</h4>
 			{#each season_details.episodes as episode}
 				<div
-					class=" bg-skin-primary flex flex-col xl:flex-row m-4 p-2 rounded-lg
-				neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+					class=" bg-skin-primary neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover m-4 flex
+				flex-col rounded-lg p-2 xl:flex-row"
 				>
 					<a
 						href={`/episode/${tv_id}/${season_details.season_number}/${episode.episode_number}`}
-						class="flex flex-col xl:flex-row text-skin-base xl:rounded-lg"
+						class="text-skin-base flex flex-col xl:flex-row xl:rounded-lg"
 					>
 						<div
-							class="flex mx-auto max-h-full max-w-full xl:m-0 xl:flex-none xl:w-80 xl:h-44 xl:items-start"
+							class="mx-auto flex max-h-full max-w-full xl:m-0 xl:h-44 xl:w-80 xl:flex-none xl:items-start"
 						>
 							<img
-								class="flex xl:w-[300px] xl:h-[169px] items-start bg-cover"
+								class="flex items-start bg-cover xl:h-[169px] xl:w-[300px]"
 								src={episode.still_path ? IMAGE_API + episode.still_path : '/default.jpg'}
 								alt="season"
 							/>
@@ -63,9 +38,9 @@
 							<h6>Air Date: {episode.air_date}</h6>
 							<h6>Overview:</h6>
 							{#if episode.overview}
-								<h6 class=" flex-1 pr-8 text-skin-muted mb-4">{episode.overview}</h6>
+								<h6 class=" text-skin-muted mb-4 flex-1 pr-8">{episode.overview}</h6>
 							{:else}
-								<h6 class=" flex-1 pr-8 text-skin-muted mb-4">
+								<h6 class=" text-skin-muted mb-4 flex-1 pr-8">
 									No information currently available
 								</h6>
 							{/if}
@@ -76,3 +51,17 @@
 		{/if}
 	</div>
 </section>
+
+{#if season_details?.aggregate_credits?.cast?.length}
+	<Cast cast_details={season_details.aggregate_credits.cast} title={'Season Cast'} />
+{/if}
+
+{#if season_details?.aggregate_credits?.guest_stars?.length}
+	<Cast cast_details={season_details.aggregate_credits.guest_stars} title={'Season Crew'} />
+{/if}
+
+{#if season_details?.aggregate_credits?.crew?.length}
+	<Cast cast_details={season_details.aggregate_credits.crew} title={'Season Crew'} />
+{/if}
+
+<div class="mb-8 xl:mb-8" />

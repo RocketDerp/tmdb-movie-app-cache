@@ -1,43 +1,50 @@
 <script lang="ts">
 	import ImageLoader from '$lib/Image/ImageLoader.svelte';
 	import DummyPerson from '$lib/svgs/DummyPerson.svelte';
-	export let id: number;
-	export let profile_path = '';
-	export let name: string;
-	export let role: string;
+	export let person: CastType;
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w200/';
 </script>
 
 <div
-	class="w-[132px] flex justify-center h-62 flex-shrink-0 sm:rounded-lg mb-2 relative m-0.5 sm:mr-3 
-        hover:text-skin-selected pt-2
-        neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+	class="h-62 hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover relative m-0.5 mb-2 flex 
+        w-[132px] flex-shrink-0
+        justify-center pt-2 sm:mr-3 sm:rounded-lg"
 >
-	<a class="w-28 hover:text-skin-selected" href={`/person/${id}`}>
-		<div class="w-28 h-44">
-			{#if profile_path}
+	<a class="hover:text-skin-selected w-28" href={`/person/${person.id}`}>
+		<div class="h-44 w-28">
+			{#if person?.profile_path}
 				<ImageLoader
 					klass={'object-cover w-28 h-44'}
-					src={IMAGE_API + profile_path}
+					src={IMAGE_API + person.profile_path}
 					alt="profile"
 				/>
 			{:else}
-				<div class="flex rounded-t w-28 h-44">
+				<div class="flex h-44 w-28 rounded-t">
 					<DummyPerson />
 				</div>
 			{/if}
 		</div>
 		<div class="pt-1">
 			<p
-				class="flex items-center justify-center font-semibold text-center text-skin-base line-clamp-1 xl:line-clamp-2"
+				class="text-skin-base line-clamp-1 xl:line-clamp-2 flex items-center justify-center text-center font-semibold"
 			>
-				{name}
+				{person.name}
 			</p>
-			<p
-				class="flex items-center justify-center text-center text-skin-muted line-clamp-1 xl:line-clamp-2"
-			>
-				{role}
-			</p>
+			{#if person?.character}
+				<p class="text-skin-muted xl:line-clamp-2 flex items-center justify-center text-center">
+					{person.character}
+				</p>
+			{:else if person?.job}
+				<p class="text-skin-muted  flex items-center justify-center text-center">
+					{person.job}
+				</p>
+			{/if}
 		</div>
 	</a>
 </div>
+<!-- <CarouselPerson
+					profile_path={person?.profile_path || ''}
+					id={person.id}
+					name={person.name}
+					role={person.roles[0].character}
+				/> -->
