@@ -1,4 +1,3 @@
-import { error } from "@sveltejs/kit";
 import { API_KEY } from '$env/static/private';
 const GENRES_TV_API = `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language-en-GB`;
 const GENRES_MOVIE_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language-en-GB`;

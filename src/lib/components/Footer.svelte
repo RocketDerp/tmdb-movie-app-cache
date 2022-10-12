@@ -2,26 +2,26 @@
 	import TmdbSvg from '$lib/svgs/TmdbSvg.svelte';
 </script>
 
-<footer class="fixed bottom-0 z-50 w-full bg-skin-primary">
-	<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between ">
+<footer class="bg-skin-primary fixed bottom-0 z-50 w-full">
+	<div class="mx-auto flex max-w-7xl flex-col md:flex-row md:justify-between ">
 		<div
-			class="flex flex-row md:flex-shrink items-center justify-between h-6 pl-2 pr-1 mx-auto max-w-7xl md:pl-5 lg:pl-7 "
+			class="mx-auto flex h-6 max-w-7xl flex-row items-center justify-between pl-2 pr-1 md:flex-shrink md:pl-5 lg:pl-7 "
 		>
-			<div class=" text-xs text-skin-inverted flex flex-row items-center">
+			<div class=" text-skin-inverted flex flex-row items-center text-xs">
 				Built by <a
-					class=" text-xs pl-1 text-skin-base hover:text-skin-selected"
+					class=" text-skin-base hover:text-skin-selected pl-1 text-xs"
 					href="https:\\athena-designs.com"
 					target="_blank"
-					rel="external">Athena-Designs</a
+					rel="external">Wayne Morgan</a
 				>
 			</div>
 		</div>
 
 		<div
-			class=" text-xs text-skin-inverted md:flex-grow flex flex-wrap justify-center md:justify-end md:pr-2 items-center"
+			class=" text-skin-inverted flex flex-wrap items-center justify-center text-xs md:flex-grow md:justify-end md:pr-2"
 		>
 			<p>This product uses the</p>
-			<div class="h-[6px] md:h-[10px] px-2">
+			<div class="h-[6px] px-2 md:h-[10px]">
 				<TmdbSvg />
 			</div>
 		</div>

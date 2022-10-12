@@ -9,6 +9,5 @@ export const handle: Handle = async ({ event, resolve }) => {
     }
     const response = await resolve(event)
     event.locals.theme = { mode: theme }
-
     return response
 }

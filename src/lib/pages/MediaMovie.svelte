@@ -31,7 +31,7 @@
 
 <section
 	id="Movie Media"
-	class="bg-right-top bg-no-repeat bg-contain text-white xl:mt-5 xl:rounded-2xl"
+	class="bg-contain bg-right-top bg-no-repeat text-white xl:mt-5 xl:rounded-2xl"
 	style="background-image: url({IMAGE_API}original/{movie_details.backdrop_path})"
 >
 	<div
@@ -39,11 +39,11 @@
 		style="background-image: linear-gradient(to right, rgb(5, 69, 112) 150px, rgba(37, 137, 204, 0.84) 100%)"
 	>
 		<div
-			class="grid max-w-7xl md:grid-cols-[20rem_minmax(0,_1fr)_minmax(0,_1fr)_minmax(0,_1fr)] px-10 py-8 mx-auto md:rounded-2xl"
+			class="mx-auto grid max-w-7xl px-10 py-8 md:grid-cols-[20rem_minmax(0,_1fr)_minmax(0,_1fr)_minmax(0,_1fr)] md:rounded-2xl"
 		>
 			<div class="col-start-1 col-end-2 ">
 				<img
-					class="w-64 mx-auto overflow-hidden h-96 md:h-120 md:w-80 rounded-2xl"
+					class="md:h-120 mx-auto h-96 w-64 overflow-hidden rounded-2xl md:w-80"
 					src={movie_details.poster_path
 						? IMAGE_API + 'w500' + movie_details.poster_path
 						: '/default.jpg'}
@@ -51,17 +51,17 @@
 				/>
 			</div>
 			<div class="flex flex-wrap content-start md:col-start-2 md:col-end-5 md:pl-10">
-				<div class="flex flex-wrap w-full mt-6 md:mt-0">
+				<div class="mt-6 flex w-full flex-wrap md:mt-0">
 					<h4 class="w-full md:flex md:text-4xl">
 						{movie_details.title}
-						<span class="ml-1 text-lg md:text-4xl text-white">
+						<span class="ml-1 text-lg text-white md:text-4xl">
 							{movie_details.release_date ? movie_details.release_date.substring(0, 4) : ''}
 						</span>
 					</h4>
 					<div class="md:flex">
 						<div class="pl-0">
 							{movie_details.release_date ? movie_details.release_date : 'No Date Available'}
-							<span class="hidden md:px-2 md:inline">&#x2022;</span>
+							<span class="hidden md:inline md:px-2">&#x2022;</span>
 						</div>
 						<div>
 							{#each movie_details.genres as { id, name }, i}
@@ -71,7 +71,7 @@
 						</div>
 						{#if movie_details && movie_details.runtime}
 							<div class="duration">
-								<span class="hidden md:px-2 md:inline">&#x2022;</span>{(movie_details.runtime -
+								<span class="hidden md:inline md:px-2">&#x2022;</span>{(movie_details.runtime -
 									(movie_details.runtime % 60)) /
 									60}h {movie_details.runtime % 60}m
 							</div>
@@ -79,12 +79,13 @@
 					</div>
 				</div>
 				<div
-					class="relative flex flex-wrap justify-center w-full mb-1 md:justify-start md:flex-nowrap md:overflow-y-hidden"
+					class="relative mb-1 flex w-full flex-wrap justify-center md:flex-nowrap md:justify-start md:overflow-y-hidden"
 				>
 					{#if trailer_details.length > 0}
 						{#each trailer_details as trailer}
 							<div
-								class="flex-shrink-0 w-56 pl-2 cursor-pointer hover:opacity-80"
+								class="w-56 flex-shrink-0 cursor-pointer pl-2 hover:opacity-80"
+								on:keydown
 								on:click={() => showModal(trailer.key, trailer.site)}
 								title={trailer.name}
 							>
@@ -94,22 +95,22 @@
 						<!-- <p class="flex items-center justify-center ml-4 text-2xl">Play Trailer</p> -->
 					{:else}
 						<div class="flex pl-5">
-							<p class="flex justify-center ml-4">No Trailer Available</p>
+							<p class="ml-4 flex justify-center">No Trailer Available</p>
 						</div>
 					{/if}
 				</div>
 				<div class="w-full">
 					<div class="text-lg italic opacity-70">{movie_details.tagline}</div>
-					<div class="flex justify-between items-center">
+					<div class="flex items-center justify-between">
 						<h4 class="w-full font-semibold">Overview</h4>
 						{#if movie_details.vote_average}
-							<div class="h-12 w-12 p-0 rounded-full bg-black">
+							<div class="h-12 w-12 rounded-full bg-black p-0">
 								<ProgressBar {percent} />
 								<div
-									class="relative top-0 left-0 -translate-y-12 w-12 h-12 flex justify-center items-center"
+									class="relative top-0 left-0 flex h-12 w-12 -translate-y-12 items-center justify-center"
 								>
-									<p class="text-gray-200 text-base">
-										{percent}<span class="text-[0.5rem] leading-4 align-top">%</span>
+									<p class="text-base text-gray-200">
+										{percent}<span class="align-top text-[0.5rem] leading-4">%</span>
 									</p>
 								</div>
 							</div>

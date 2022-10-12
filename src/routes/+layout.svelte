@@ -53,11 +53,11 @@
 </svelte:head>
 
 <main id="core">
-	<div class="fixed top-0 w-full min-h-screen -z-50 bg-skin-bg" />
+	<div class="bg-skin-bg fixed top-0 -z-50 min-h-screen w-full" />
 
 	<Header />
 	<Footer />
-	<section class="mx-auto mt-12 md:mt-[56px] max-w-7xl">
+	<section class="mx-auto mt-12 max-w-7xl sm:mt-[56px]">
 		<slot />
 	</section>
 </main>

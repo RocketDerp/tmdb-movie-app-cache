@@ -6,23 +6,20 @@
 	let cast: EpisodeCast[] = [];
 	$: {
 		cast = episode_details.credits.cast;
-		console.log('cast', cast);
 	}
 </script>
 
 <section id="episode">
-	<div
-		class="max-w-7xl mx-auto text-skin-base xl:mt-5 bg-skin-primary xl:pl-0 pt-1 pb-1 xl:rounded-2xl"
-	>
+	<div class="text-skin-base bg-skin-primary mx-auto max-w-7xl pt-1 pb-1 xl:rounded-2xl xl:pl-0">
 		{#if episode_details.id}
 			<h4 class=" pl-4">Episode Information</h4>
-			<div class=" flex flex-col xl:flex-row m-4 p-2 rounded-lg">
-				<div class="flex flex-col xl:flex-row text-skin-base xl:rounded-lg">
+			<div class=" m-4 flex flex-col rounded-lg p-2 xl:flex-row">
+				<div class="text-skin-base flex flex-col xl:flex-row xl:rounded-lg">
 					<div
-						class="flex mx-auto max-h-full max-w-full xl:m-0 xl:flex-none xl:w-80 xl:h-44 xl:items-start"
+						class="mx-auto flex max-h-full max-w-full xl:m-0 xl:h-44 xl:w-80 xl:flex-none xl:items-start"
 					>
 						<img
-							class="flex xl:w-[300px] xl:h-[169px] items-start bg-cover"
+							class="flex items-start bg-cover xl:h-[169px] xl:w-[300px]"
 							src={episode_details.still_path
 								? IMAGE_API + episode_details.still_path
 								: '/default.jpg'}
@@ -37,7 +34,7 @@
 						<h4>Episode Name: {episode_details.name}</h4>
 						<h6>Air Date: {episode_details.air_date}</h6>
 						<h6>Overview:</h6>
-						<h6 class=" flex-1 pr-8 text-skin-muted mb-4">{episode_details.overview}</h6>
+						<h6 class=" text-skin-muted mb-4 flex-1 pr-8">{episode_details.overview}</h6>
 					</div>
 				</div>
 			</div>
@@ -47,15 +44,15 @@
 {#if cast.length}
 	<section
 		id="episode cast"
-		class="my-2 pt-1 mx-auto max-w-7xl xl:mt-5 mb-10 bg-skin-primary xl:pl-5 pb-5 xl:rounded-2xl"
+		class="bg-skin-primary xs:pl-2 mx-auto max-w-7xl pl-0 pt-1 pb-5 sm:mt-2 sm:pl-0 md:pl-5 xl:rounded-2xl"
 	>
 		<h3
-			class="flex justify-center text-2xl font-bold text-skin-base xl:inline-block xl:justify-start xl:my-5"
+			class="text-skin-base flex justify-center text-2xl font-bold xl:my-5 xl:inline-block xl:justify-start"
 		>
 			Episode Cast
 		</h3>
 		<div
-			class="relative flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:overflow-y-hidden"
+			class="relative flex flex-wrap justify-center sm:flex-nowrap sm:justify-start sm:overflow-y-hidden"
 		>
 			{#each cast as person}
 				<CarouselPerson
@@ -71,15 +68,15 @@
 {#if episode_details.guest_stars.length}
 	<section
 		id="guest stars"
-		class="my-2 pt-1 mx-auto max-w-7xl xl:mt-5 bg-skin-primary xl:pl-5 pb-5 xl:rounded-2xl"
+		class="bg-skin-primary xs:pl-2 mx-auto max-w-7xl pt-1 pb-5 pl-0 sm:mt-2 md:pl-5 xl:rounded-2xl"
 	>
 		<h3
-			class="flex justify-center text-2xl font-bold text-skin-base xl:inline-block xl:justify-start xl:my-5"
+			class="text-skin-base flex justify-center text-2xl font-bold xl:my-5 xl:inline-block xl:justify-start"
 		>
 			Guest Stars
 		</h3>
 		<div
-			class="relative flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:overflow-y-hidden"
+			class="relative flex flex-wrap justify-center sm:flex-nowrap sm:justify-start sm:overflow-y-hidden"
 		>
 			{#each episode_details.guest_stars as guest_star}
 				<CarouselPerson
@@ -96,15 +93,15 @@
 {#if episode_details.crew.length}
 	<section
 		id="crew"
-		class="my-2 pt-1 mx-auto max-w-7xl xl:mt-5 mb-10 bg-skin-primary xl:pl-5 pb-5 xl:rounded-2xl"
+		class="bg-skin-primary xs:pl-2 mx-auto mb-10 max-w-7xl pt-1 pb-5 pl-0 sm:mt-2 md:pl-5 xl:rounded-2xl"
 	>
 		<h3
-			class="flex justify-center text-2xl font-bold text-skin-base xl:inline-block xl:justify-start xl:my-5"
+			class="text-skin-base flex justify-center text-2xl font-bold xl:my-5 xl:inline-block xl:justify-start"
 		>
 			Crew
 		</h3>
 		<div
-			class="relative flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:overflow-y-hidden"
+			class="relative flex flex-wrap justify-center sm:flex-nowrap sm:justify-start sm:overflow-y-hidden"
 		>
 			{#each episode_details.crew as crew}
 				<CarouselPerson

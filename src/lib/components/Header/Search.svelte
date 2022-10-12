@@ -40,38 +40,37 @@
 			<button
 				aria-label="Search"
 				on:click|preventDefault={showSearch}
-				class="flex justify-center min-w-8 h-8 align-middle inline-flex items-center rounded text-skin-inverted hover:text-skin-selected py-1 px-2 rounded-[3px]
-			            neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+				class="min-w-8 text-skin-inverted hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover flex h-8 items-center justify-center rounded-[3px] py-1 px-2 align-middle"
 			>
 				<SearchSvg />
-				<span class="hidden mx-2 xl:block">Search</span>
+				<span class="mx-2 hidden xl:block">Search</span>
 			</button>
 
 			<!-- =========================================== -->
 			{#if isShowing}
 				<div
-					class="w-full fixed left-0 rounded"
+					class="fixed left-0 w-full rounded"
 					use:clickOutside
 					on:outclick={() => (isShowing = false)}
 				>
-					<div class="mt-2 flex max-w-7xl mx-auto bg-skin-primary">
+					<div class="bg-skin-primary mx-auto mt-2 flex max-w-7xl">
 						<form
-							class="text-skin-base w-full flex flex-col p-2"
+							class="text-skin-base flex w-full flex-col p-2"
 							label="search form"
 							on:submit|preventDefault={handleSearch}
 						>
 							<div class="flex flex-row p-2">
 								<div
-									class="fill-selected w-8 flex items-center justify-center
-                                            neumorph dark:neumorphdark "
+									class="fill-selected neumorph dark:neumorphdark flex w-8
+                                            items-center justify-center "
 								>
 									<svelte:component this={selectedMedia.component} />
 								</div>
 								<input
 									label="search"
-									class="text-skin-inverted flex ml-3 w-full text-lg bg-transparent border-2
-                                            outline-none
-                                            neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+									class="text-skin-inverted neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-3 flex
+                                            w-full
+                                            border-2 bg-transparent text-lg outline-none"
 									type="text"
 									placeholder="Search..."
 									bind:value={searchTerm}
@@ -80,9 +79,10 @@
 
 							{#each mediaOptions as option}
 								<div
+									on:keydown
 									on:click={() => (selectedMedia = option)}
-									class="group mx-2 my-1 p-1 w-32 cursor-pointer items-center flex flex-row gap-3 peer hover:text-skin-selected
-                                    neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+									class="hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover group peer mx-2 my-1 flex w-32 cursor-pointer
+                                    flex-row items-center gap-3 p-1"
 									class:text-skin-base={selectedMedia}
 									value={option}
 								>

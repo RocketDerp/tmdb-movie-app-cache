@@ -8,8 +8,6 @@ export const load: PageServerLoad = async ({ params }) => {
         const url =
             `https://api.themoviedb.org/3/tv/${params.id}/season/${params.season_number}/episode/${params.episode_number}?api_key=${API_KEY}&append_to_response=credits`;
         const response = await fetch(url)
-        console.log('credits', url)
-
         const episode_details: EpisodesType = await response.json()
         return {
             episode_details
