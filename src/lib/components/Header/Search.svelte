@@ -55,15 +55,13 @@
 				>
 					<div class="bg-skin-primary mx-auto mt-2 flex max-w-7xl">
 						<form
-							class="text-skin-base flex w-full flex-col p-2"
+							class="text-skin-base flex w-full flex-col sm:p-2"
 							label="search form"
 							on:submit|preventDefault={handleSearch}
 						>
 							<div class="flex flex-row p-2">
-								<div
-									class="fill-selected neumorph dark:neumorphdark flex w-8
-                                            items-center justify-center "
-								>
+								<p>Search in {selectedMedia.name}</p>
+								<div class="fill-selected flex w-8 items-center justify-center ">
 									<svelte:component this={selectedMedia.component} />
 								</div>
 								<input
@@ -76,21 +74,22 @@
 									bind:value={searchTerm}
 								/>
 							</div>
-
-							{#each mediaOptions as option}
-								<div
-									on:keydown
-									on:click={() => (selectedMedia = option)}
-									class="hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover group peer mx-2 my-1 flex w-32 cursor-pointer
-                                    flex-row items-center gap-3 p-1"
-									class:text-skin-base={selectedMedia}
-									value={option}
-								>
-									<span> in</span>
-									<svelte:component this={option.component} />
-									{option.name}
-								</div>
-							{/each}
+							<div class="flex xl:flex-row">
+								{#each mediaOptions as option}
+									<div
+										on:keydown
+										on:click={() => (selectedMedia = option)}
+										class="hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover group peer mx-2 my-1 flex cursor-pointer
+                                    flex-row items-center gap-3 p-1 pl-0 sm:pl-1"
+										class:text-skin-base={selectedMedia}
+										value={option}
+									>
+										<span>in</span>
+										<svelte:component this={option.component} />
+										{option.name}
+									</div>
+								{/each}
+							</div>
 						</form>
 					</div>
 				</div>

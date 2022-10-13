@@ -6,7 +6,7 @@
 
 <section
 	id="movie-list"
-	class="flex flex-wrap justify-around mx-auto bg-skin-tertiary max-w-7xl xl:mt-2 xl:rounded-2xl"
+	class="bg-skin-tertiary mx-auto flex max-w-7xl flex-wrap justify-evenly xl:mt-2 xl:rounded-2xl"
 >
 	{#each movie_data as datum}
 		<CardMovie {datum} />
