@@ -21,7 +21,7 @@
 				flex-col rounded-lg p-2 xl:flex-row"
 				>
 					<a
-						href={`/epi-sode/${tv_id}/${season_details.season_number}/${episode.episode_number}`}
+						href={`/episode/${tv_id}/${season_details.season_number}/${episode.episode_number}`}
 						class="text-skin-base flex flex-col xl:flex-row xl:rounded-lg"
 					>
 						<div
