@@ -4,7 +4,11 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts,svg}'],
 	darkMode: 'class',
 	theme: {
+		
 		extend: {
+			screens: {
+			'xs': '420px',
+			},
 			fontFamily: {
 				sans: ['Poppins', ...defaultTheme.fontFamily.sans]
 			  },

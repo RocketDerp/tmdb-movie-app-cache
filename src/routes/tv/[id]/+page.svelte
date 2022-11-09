@@ -4,7 +4,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	
+
 	$: tv_id = $page.params.id as unknown as number;
 </script>
 

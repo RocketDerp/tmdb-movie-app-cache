@@ -6,17 +6,21 @@ declare namespace App {
 	interface Locals {
 		theme: {
 			mode: string
+		},
+		region: {
+			locale: string
 		}
 	}
-}
-interface Theme {
-	mode: ThemeType
 }
 
 declare namespace svelte.JSX {
 	interface HTMLAttributes<T> {
 		onoutclick?: (e: CustomEvent) => void
 	}
+}
+
+interface Theme {
+	mode: ThemeType
 }
 
 type ThemeType = 'dark' | 'light'
@@ -38,8 +42,6 @@ type Genres = {
 	[Key in MediaPlatform]: Genre[];
 };
 
-
-
 interface MovieResponse {
 	page: number;
 	results: MovieResult[]
@@ -47,13 +49,11 @@ interface MovieResponse {
 	total_results: number;
 }
 
-
 interface ShowResponse {
 	page: number;
 	results: ShowResult[]
 	total_pages: number;
 	total_results: number;
-
 }
 
 interface PersonResponse {
@@ -195,20 +195,12 @@ interface KnownFor {
 	origin_country: string[];
 }
 
-
-
-
-
-
-
 type Network = {
 	display_priority: number;
 	logo_path: string;
 	provider_name: string;
 	provider_id: number;
 }
-
-
 
 type DataType = MovieType | TvType | PersonType
 
@@ -525,6 +517,7 @@ interface CountryWatch {
 	rent: Provider[]
 	buy: Provider[]
 	flatrate: Provider[]
+	free: Provider[]
 }
 
 interface Provider {

@@ -1,21 +1,28 @@
 <script lang="ts">
 	import * as flag from '$lib/svgs/flags//index';
+	import { page } from '$app/stores';
 
 	export let watchers_details: WatchersType;
+	export let media: string;
 
 	const CountryCode = [
-		{ code: 'GB', name: 'United Kingdom', component: flag.gb },
-		{ code: 'US', name: 'USA', component: flag.us },
-		{ code: 'CA', name: 'Canada', component: flag.ca },
-		{ code: 'AU', name: 'Australia', component: flag.au },
-		{ code: 'FR', name: 'France', component: flag.fr },
-		{ code: 'DE', name: 'Germany', component: flag.de },
-		{ code: 'ES', name: 'Spain', component: flag.es }
+		{ code: 'en-GB', country: 'GB', name: 'United Kingdom', component: flag.gb },
+		{ code: 'en-US', country: 'US', name: 'USA', component: flag.us },
+		{ code: 'en-CA', country: 'CA', name: 'Canada', component: flag.ca },
+		{ code: 'en-AU', country: 'AU', name: 'Australia', component: flag.au },
+		{ code: 'fr-FR', country: 'FR', name: 'France', component: flag.fr },
+		{ code: 'de-DE', country: 'DE', name: 'Germany', component: flag.de },
+		{ code: 'es-ES', country: 'ES', name: 'Spain', component: flag.es },
+		{ code: 'sv-SE', country: 'SE', name: 'Sweden', component: flag.sw }
 	];
 
-	let activeCountryindex = 0;
+	const index = CountryCode.findIndex((object) => {
+		return object.code === $page.data.locale;
+	});
 
-	$: i_code = CountryCode[activeCountryindex].code as CountryCodeType;
+	let activeCountryindex = index;
+
+	$: i_code = CountryCode[activeCountryindex].country as CountryCodeType;
 	// 20:30:01 [vite-plugin-svelte] C:/Github/tmdb-movie-app/src/lib/pages/MediaMovie.svelte:79:7 A11y: visible,
 	// non-interactive elements with an on:click event must be accompanied by an on:keydown, on:keyup, or on:keypress event.
 </script>
@@ -73,17 +80,38 @@
 				</div>
 			</div>
 		</div>
-		{#if watchers_details[i_code]}
+		{#if !watchers_details[i_code]?.buy && !watchers_details[i_code]?.rent && !watchers_details[i_code]?.flatrate && !watchers_details[i_code]?.free}
+			<h1>Not Currently Available</h1>
+		{:else if watchers_details[i_code]}
+			{#if watchers_details[i_code].free}
+				<h2 class="text-skin-base text-lg">FreeView</h2>
+				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
+					{#each watchers_details[i_code].free as free}
+						<div class="flex w-28 flex-col items-center pb-2">
+							<a href={`/network/${media}/${free.provider_id}`}>
+								<img
+									class="mt-1 h-20"
+									src={`https://image.tmdb.org/t/p/w300${free.logo_path}`}
+									alt={free.provider_name}
+								/>
+							</a>
+							<!-- <h2 class="align-center text-xs text-skin-base">{buy.provider_name}</h2> -->
+						</div>
+					{/each}
+				</div>
+			{/if}
 			{#if watchers_details[i_code].buy}
 				<h2 class="text-skin-base text-lg">Buy</h2>
 				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
 					{#each watchers_details[i_code].buy as buy}
 						<div class="flex w-28 flex-col items-center pb-2">
-							<img
-								class="mt-1 h-20"
-								src={`https://image.tmdb.org/t/p/w300${buy.logo_path}`}
-								alt={buy.provider_name}
-							/>
+							<a href={`/network/${media}/${buy.provider_id}`}>
+								<img
+									class="mt-1 h-20"
+									src={`https://image.tmdb.org/t/p/w300${buy.logo_path}`}
+									alt={buy.provider_name}
+								/>
+							</a>
 							<!-- <h2 class="align-center text-xs text-skin-base">{buy.provider_name}</h2> -->
 						</div>
 					{/each}
@@ -94,11 +122,13 @@
 				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
 					{#each watchers_details[i_code].rent as rent}
 						<div class="flex w-28 flex-col items-center pb-2">
-							<img
-								class="mt-1 h-20"
-								src={`https://image.tmdb.org/t/p/w300${rent.logo_path}`}
-								alt={rent.provider_name}
-							/>
+							<a href={`/network/${media}/${rent.provider_id}`}>
+								<img
+									class="mt-1 h-20"
+									src={`https://image.tmdb.org/t/p/w300${rent.logo_path}`}
+									alt={rent.provider_name}
+								/>
+							</a>
 							<!-- <h2 class="align-center text-xs text-skin-base">{rent.provider_name}</h2> -->
 						</div>
 					{/each}
@@ -109,11 +139,13 @@
 				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
 					{#each watchers_details[i_code].flatrate as flatrate}
 						<div class="flex w-28 flex-col items-center pb-2">
-							<img
-								class="mt-1 h-20"
-								src={`https://image.tmdb.org/t/p/w300${flatrate.logo_path}`}
-								alt={flatrate.provider_name}
-							/>
+							<a href={`/network/${media}/${flatrate.provider_id}`}>
+								<img
+									class="mt-1 h-20"
+									src={`https://image.tmdb.org/t/p/w300${flatrate.logo_path}`}
+									alt={flatrate.provider_name}
+								/>
+							</a>
 							<!-- <h2 class="align-center text-xs text-skin-base">{flatrate.provider_name}</h2> -->
 						</div>
 					{/each}

@@ -116,7 +116,7 @@
 	</div>
 </section>
 
-<Watchers {watchers_details} />
+<Watchers {watchers_details} media="tv" />
 
 <Cast {cast_details} title={'Top Billed Cast'} />
 

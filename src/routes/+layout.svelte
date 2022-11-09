@@ -2,14 +2,15 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { theme } from '$lib/stores/store';
+	import { region } from '$lib/stores/store';
 	import Header from '$lib/components/Header/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import type { LayoutData } from './$types';
 	import { tv_genres, movie_genres } from '$lib/stores/store';
 
 	export let data: LayoutData;
-	$tv_genres = data.tv_genre;
-	$movie_genres = data.movie_genre;
+	$: data, ($tv_genres = data.tv_genre);
+	$: data, ($movie_genres = data.movie_genre);
 
 	// let localTheme: ThemeType;
 
@@ -27,6 +28,12 @@
 		} else {
 			theme.useLocalStorage();
 		}
+		if (!('region' in localStorage)) {
+			region.useLocalStorage();
+			region.set({ ...$region });
+		} else {
+			region.useLocalStorage();
+		}
 	});
 </script>
 
@@ -35,12 +42,10 @@
 		if (!('theme' in localStorage)) {
 			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 				document.documentElement.classList.add('dark');
-				document.cookie =
-					'theme=dark;path=/;SameSite=strict;expires=Fri, 31 Dec 9999 23:59:59 GMT;';
+				document.cookie = 'theme=dark;path=/;SameSite=lax;expires=Fri, 31 Dec 9999 23:59:59 GMT;';
 			} else {
 				document.documentElement.classList.add('light');
-				document.cookie =
-					'theme=light;path=/;SameSite=strict;expires=Thu, 30 Dec 9999 23:59:59 GMT;';
+				document.cookie = 'theme=light;path=/;SameSite=lax;expires=Thu, 30 Dec 9999 23:59:59 GMT;';
 			}
 		} else {
 			if (localStorage.getItem('theme')) {

@@ -4,10 +4,7 @@ import { writable } from 'svelte/store';
 export const current_page: Writable<number> = writable(1);
 export const trailer_key: Writable<string> = writable('xyz');
 export const video_site: Writable<string> = writable('');
-
-
 export const media_type: Writable<MediaType> = writable('movie');
-
 export const tv_network: Writable<Network[]> = writable([]);
 export const selected: Writable<number | null> = writable();
 export const show_name: Writable<string> = writable('');
@@ -26,9 +23,9 @@ export const createWritableStore = (key: string, startValue: any): any => {
         subscribe,
         set,
         useLocalStorage: () => {
-            const theme = localStorage.getItem(key);
-            if (theme) {
-                set(JSON.parse(theme));
+            const keyValue = localStorage.getItem(key);
+            if (keyValue) {
+                set(JSON.parse(keyValue));
             }
 
             subscribe((current) => {
@@ -39,3 +36,4 @@ export const createWritableStore = (key: string, startValue: any): any => {
 };
 
 export const theme = createWritableStore('theme', { mode: 'light' })
+export const region = createWritableStore('region', { locale: 'en-GB' })

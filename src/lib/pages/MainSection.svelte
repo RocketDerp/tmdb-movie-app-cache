@@ -10,6 +10,7 @@
 	export let genres: number | undefined = undefined;
 	export let searching: string | undefined = undefined;
 	export let media_type: MediaType;
+	export let network: string | undefined = undefined;
 
 	let movie_data: MovieResult[] = [];
 	let tv_data: ShowResult[] = [];
@@ -37,6 +38,8 @@
 		let res: Response;
 		if (searching) {
 			res = await fetch(`../../api/postSearch/${media_type}/${searching}/${current_page}`);
+		} else if (network) {
+			res = await fetch(`../../api/postNetwork/${media_type}/${network}/${current_page}`);
 		} else if (genres === undefined) {
 			res = await fetch(`../api/postShow/${media_type}/${current_page}`);
 		} else {

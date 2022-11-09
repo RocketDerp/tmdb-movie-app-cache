@@ -5,11 +5,15 @@
 	import Watchers from '$lib/components/Watchers.svelte';
 	import { browser } from '$app/environment';
 
+	let trailer_details: TrailerType[] = [];
+	let cast_details: CastType[] = [];
+	let watchers_details: WatchersType;
+
 	export let movie_details: MovieAppendType;
 
-	let trailer_details: TrailerType[] = movie_details.videos.results;
-	let cast_details: CastType[] = movie_details.credits.cast;
-	let watchers_details: WatchersType = movie_details['watch/providers'].results;
+	$: trailer_details = movie_details.videos.results;
+	$: cast_details = movie_details.credits.cast;
+	$: watchers_details = movie_details['watch/providers'].results;
 
 	let percent = Math.floor(movie_details.vote_average * 10);
 
@@ -32,8 +36,10 @@
 <section
 	id="Movie Media"
 	class="bg-contain bg-right-top bg-no-repeat text-white xl:mt-5 xl:rounded-2xl"
-	style="background-image: url({IMAGE_API}original/{movie_details.backdrop_path})"
 >
+	{#if movie_details.backdrop_path}
+		<div style="background-image: url({IMAGE_API}original/{movie_details.backdrop_path})" />
+	{/if}
 	<div
 		class="bg-gradient-to-r xl:rounded-2xl"
 		style="background-image: linear-gradient(to right, rgb(5, 69, 112) 150px, rgba(37, 137, 204, 0.84) 100%)"
@@ -123,7 +129,7 @@
 	</div>
 </section>
 
-<Watchers {watchers_details} />
+<Watchers {watchers_details} media="movie" />
 
 <Cast {cast_details} title={'Top Billed Cast'} />
 <Cast cast_details={movie_details.credits.crew} title={'Crew'} />

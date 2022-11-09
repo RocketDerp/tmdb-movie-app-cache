@@ -1,10 +1,10 @@
-import { error } from "@sveltejs/kit";
-
 import { API_KEY } from '$env/static/private';
-const GENRES_TV_API = `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language-en-GB`;
-const GENRES_MOVIE_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language-en-GB`;
+import type { LayoutServerLoad } from './$types';
+import { error } from '@sveltejs/kit';
 
-export const load = async () => {
+export const load: LayoutServerLoad = async ({ locals }) => {
+    const GENRES_TV_API = `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language=${locals.region.locale}`;
+    const GENRES_MOVIE_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=${locals.region.locale}`;
     const fetch_tv = async (): Promise<Genre[]> => {
         try {
             const response_tv = await fetch(GENRES_TV_API)
@@ -28,7 +28,7 @@ export const load = async () => {
     }
     return {
         tv_genre: fetch_tv(),
-        movie_genre: fetch_movie()
+        movie_genre: fetch_movie(),
+        locale: locals.region.locale
     }
 }
-
