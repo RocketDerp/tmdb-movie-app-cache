@@ -60,11 +60,11 @@
 									<li
 										on:keydown
 										on:click={() => (activeCountryindex = index)}
-										class=" mx-3 justify-center pt-[7px]"
+										class=" justify-center pt-[7px]"
 									>
 										<div
-											class="w-38 neumorph hover:neumorphhover dark:neumorphdark 
-										dark:hover:neumorphhover flex flex-row items-center
+											class=" neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover flex 
+										w-44 flex-row items-center pl-3
 									"
 										>
 											<div class="h-3 w-4">
@@ -81,13 +81,17 @@
 			</div>
 		</div>
 		{#if !watchers_details[i_code]?.buy && !watchers_details[i_code]?.rent && !watchers_details[i_code]?.flatrate && !watchers_details[i_code]?.free}
-			<h1>Not Currently Available</h1>
+			<div class="flex justify-center pb-8">
+				<h2>Not Currently Available</h2>
+			</div>
 		{:else if watchers_details[i_code]}
 			{#if watchers_details[i_code].free}
-				<h2 class="text-skin-base text-lg">FreeView</h2>
-				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
+				<h2 class="text-skin-base pl-2 text-lg">FreeView</h2>
+				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].free as free}
-						<div class="flex w-28 flex-col items-center pb-2">
+						<div
+							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-2 flex w-24 flex-col items-center pb-2"
+						>
 							<a href={`/network/${media}/${free.provider_id}`}>
 								<img
 									class="mt-1 h-20"
@@ -101,10 +105,12 @@
 				</div>
 			{/if}
 			{#if watchers_details[i_code].buy}
-				<h2 class="text-skin-base text-lg">Buy</h2>
-				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
+				<h2 class="text-skin-base pl-2 text-lg">Buy</h2>
+				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].buy as buy}
-						<div class="flex w-28 flex-col items-center pb-2">
+						<div
+							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-2 flex w-24 flex-col items-center pb-2"
+						>
 							<a href={`/network/${media}/${buy.provider_id}`}>
 								<img
 									class="mt-1 h-20"
@@ -118,10 +124,12 @@
 				</div>
 			{/if}
 			{#if watchers_details[i_code].rent}
-				<h2 class="text-skin-base text-lg ">Rent</h2>
-				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
+				<h2 class="text-skin-base pl-2 text-lg ">Rent</h2>
+				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].rent as rent}
-						<div class="flex w-28 flex-col items-center pb-2">
+						<div
+							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-2 flex w-24 flex-col items-center pb-2"
+						>
 							<a href={`/network/${media}/${rent.provider_id}`}>
 								<img
 									class="mt-1 h-20"
@@ -135,10 +143,12 @@
 				</div>
 			{/if}
 			{#if watchers_details[i_code].flatrate}
-				<h2 class="text-skin-base text-lg ">Subscription</h2>
-				<div class="mt-1 mb-4 flex w-full flex-row flex-wrap bg-black py-4 xl:rounded-2xl">
+				<h2 class="text-skin-base pl-2 text-lg ">Subscription</h2>
+				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].flatrate as flatrate}
-						<div class="flex w-28 flex-col items-center pb-2">
+						<div
+							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-2 flex w-24 flex-col items-center pb-2"
+						>
 							<a href={`/network/${media}/${flatrate.provider_id}`}>
 								<img
 									class="mt-1 h-20"

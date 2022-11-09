@@ -35,7 +35,7 @@
 			<button
 				aria-label="Regions"
 				class=" text-skin-inverted hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover inline-flex 
-				h-8 min-w-[32px] items-center justify-center rounded-[3px] align-middle"
+				h-8 min-w-[32px] items-center justify-center rounded-[3px] align-middle xl:pl-2"
 			>
 				<div class="flex flex-row items-center justify-center">
 					<div class=" w-6">

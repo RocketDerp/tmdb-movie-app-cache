@@ -7,8 +7,10 @@ export const load: PageServerLoad = async ({ params, locals }) => {
     const region = locals.region.locale.substring(3, 5)
     try {
         const url = `https://api.themoviedb.org/3/discover/${params.media}?api_key=${API_KEY}&watch_region=${region}&with_watch_providers=${params.id}&language=${locals.region.locale}&page=1`;
+        // console.log(url)
         const response = await fetch(url);
         const network_response: ShowResponse = await response.json();
+        // console.log(network_response)
         return {
             media_data: network_response.results,
             total_pages: network_response.total_pages

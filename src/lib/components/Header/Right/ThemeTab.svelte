@@ -7,9 +7,9 @@
 
 <section id="Region" class="xs:pr-3 pr-1">
 	<button
-		class="rounded-2
-		neumorph hover:neumorphhover dark:neumorphdark					
-		dark:hover:neumorphhover min-w-[32px] bg-[#e7e7f5] p-[2px_4px]"
+		class=" text-skin-inverted hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark 
+					dark:hover:neumorphhover inline-flex h-8 min-w-[32px] items-center justify-center 
+					rounded-[3px] align-middle xl:pl-2"
 		aria-label="Toggle Light and Dark mode"
 		on:click|preventDefault={() => {
 			toggleTheme(theme, $theme);
