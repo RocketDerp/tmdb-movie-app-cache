@@ -4,6 +4,8 @@
 	import { invalidateAll } from '$app/navigation';
 	import { region } from '$lib/stores/store';
 	import { page } from '$app/stores';
+	import { slide } from 'svelte/transition';
+	let hovering = 0;
 
 	const CountryCode = [
 		{ code: 'en-GB', name: 'United Kingdom', component: flag.gb },
@@ -20,49 +22,55 @@
 		return object.code === $page.data.locale;
 	});
 
-	let activeCountryindex = index;
+	let activeCountryindex = Math.abs(index);
 
 	function changeRegion(index: number) {
 		activeCountryindex = index;
 		selectRegion(CountryCode[index].code, region, $region);
+		hovering = 0;
 		invalidateAll();
 	}
 </script>
 
 <section id="Region" class="xs:pr-3 pr-1">
-	{#key activeCountryindex}
-		<div class="group relative z-50 inline-block">
-			<button
-				aria-label="Regions"
-				class=" text-skin-inverted hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover inline-flex 
-				h-8 min-w-[32px] items-center justify-center rounded-[3px] align-middle xl:pl-2"
-			>
-				<div class="flex flex-row items-center justify-center">
-					<div class=" w-6">
-						<svelte:component this={CountryCode[activeCountryindex].component} />
-					</div>
+	<div
+		on:mouseover={() => {
+			hovering = 1;
+		}}
+		on:mouseleave={() => {
+			hovering = 0;
+		}}
+		on:focus
+		class="group relative z-50 inline-block"
+	>
+		<button
+			aria-label="Regions"
+			class="btn morph btn-group-fill group-hover:neumorphhover dark:group-hover:neumorphdarkhover h-8 min-w-[32px]
+			justify-center align-middle xl:pl-2"
+		>
+			<div class="flex flex-row items-center justify-center">
+				<div class=" w-6">
+					<svelte:component this={CountryCode[activeCountryindex].component} />
 				</div>
-				<span class="mx-2 hidden xl:block">Region</span>
-			</button>
-
+			</div>
+			<span class="mx-2 hidden xl:block">Region</span>
+		</button>
+		{#if hovering}
 			<ul
-				class="bg-skin-primary text-skin-base absolute right-0 hidden overflow-y-auto overflow-x-hidden rounded group-hover:block"
+				transition:slide
+				class="bg-skin-header text-skin-header absolute right-0 overflow-y-auto overflow-x-hidden rounded group-hover:block xl:-right-10"
 			>
 				{#each CountryCode as { component, name }, index}
-					<button on:click={() => changeRegion(index)} class=" mx-3 justify-center pt-[7px]">
-						<div
-							class="w-42 neumorph hover:neumorphhover dark:neumorphdark 
-                            dark:hover:neumorphhover flex flex-row items-center
-                        "
-						>
+					<button on:click={() => changeRegion(index)} class=" mx-3 mb-1 justify-center py-[4px]">
+						<div class="btn morph w-42 flex flex-row pl-2">
 							<div class="h-3 w-4">
 								<svelte:component this={component} />
 							</div>
-							<span class="hover:text-skin-selected text-skin-inverted pl-2">{name}</span>
+							<span class="pl-2">{name}</span>
 						</div>
 					</button>
 				{/each}
 			</ul>
-		</div>
-	{/key}
+		{/if}
+	</div>
 </section>

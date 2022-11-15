@@ -8,7 +8,7 @@
 	{#each data.networks as network}
 		<a
 			href={`/network/${data.media_type}/${network.provider_id}`}
-			class="neumorph hover:neumorphhover dark:neumorphdark  dark:hover:neumorphhover flex h-44 w-32 justify-center"
+			class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover flex h-44 w-32 justify-center"
 		>
 			<div class="flex flex-col items-center pt-2">
 				<img class="h-28 w-28" src={IMAGE_API + network.logo_path} alt="network logo" />

@@ -17,7 +17,7 @@
 			<h4 class="pb-2">Season Information</h4>
 			{#each season_details.episodes as episode}
 				<div
-					class=" bg-skin-primary neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover m-4 flex
+					class=" bg-skin-primary neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover m-4 flex
 				flex-col rounded-lg p-2 xl:flex-row"
 				>
 					<a

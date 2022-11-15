@@ -32,15 +32,14 @@
 </script>
 
 <section id="Search" class="xs:pr-3 pr-1 ">
-	<div class="relative z-50 inline-block">
+	<div class="group relative z-50 inline-block">
 		<button
 			aria-label="Search"
 			on:click|preventDefault={showSearch}
-			class="text-skin-inverted hover:text-skin-selected neumorph 
-            hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover flex 
-            h-8 min-w-[32px] items-center justify-center rounded-[3px] py-1 px-2 align-middle"
+			class="btn morph btn-group-fill group-hover:neumorphhover 
+			dark:group-hover:neumorphdarkhover flex h-8 min-w-[32px] justify-center py-1 px-2 align-middle"
 		>
-			<SearchSvg />
+			<span class="  h-5 w-5"> <SearchSvg /> </span>
 			<span class="mx-2 hidden xl:block">Search</span>
 		</button>
 
@@ -50,21 +49,23 @@
 				use:clickOutside
 				on:outclick={() => (isShowing = false)}
 			>
-				<div class="bg-skin-primary mx-auto mt-2 flex max-w-7xl">
+				<div class="text-skin-header bg-skin-header mx-auto mt-2 flex max-w-7xl">
 					<form
-						class="text-skin-base flex w-full flex-col sm:p-2"
+						class="text-skin-header flex w-full flex-col sm:p-2"
 						label="search form"
 						on:submit|preventDefault={handleSearch}
 					>
 						<div class="flex flex-row p-2">
-							<p>Search in {selectedMedia.name}</p>
-							<div class="fill-selected flex w-8 items-center justify-center ">
-								<svelte:component this={selectedMedia.component} />
+							<div class="flex items-center sm:w-[76px]">
+								<p>Search in {selectedMedia.name}</p>
 							</div>
+							<span class="fill-header flex h-8 w-8 items-center justify-center ">
+								<svelte:component this={selectedMedia.component} />
+							</span>
 							<input
 								label="search"
-								class="text-skin-inverted  neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover 
-                                ml-3 flex w-full border-2 bg-transparent text-lg outline-none"
+								class="text-skin-header neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorhdarkhove ml-3 
+                                flex w-full border-2 bg-transparent pl-3 text-lg outline-none"
 								type="text"
 								placeholder="Search..."
 								bind:value={searchTerm}
@@ -75,13 +76,14 @@
 								<div
 									on:keydown
 									on:click={() => (selectedMedia = option)}
-									class="hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover 
-                                    group peer mx-2 my-1 flex cursor-pointer flex-row items-center gap-3 p-1 pl-0 sm:pl-1"
-									class:text-skin-base={selectedMedia}
-									value={option}
+									class="btn morph btn-fill mx-2 my-1 flex cursor-pointer flex-row gap-3 py-1 pl-1 sm:px-4"
+									class:text-skin-header={selectedMedia}
+									value={option.id}
 								>
 									<span>in</span>
-									<svelte:component this={option.component} />
+									<span class="  h-5 w-5">
+										<svelte:component this={option.component} />
+									</span>
 									{option.name}
 								</div>
 							{/each}

@@ -21,22 +21,22 @@
 	}
 </script>
 
-<section id="known-for" class="grid mx-auto mb-10 mt-4 xl:mt-0">
+<section id="known-for" class="mx-auto mb-10 mt-4 grid xl:mt-0">
 	{#if films}
-		<h3 class="flex xl:inline-block justify-center xl:justify-start  mt-2 mb-1 text-lg font-bold">
+		<h3 class="mt-2 mb-1 flex justify-center  text-lg font-bold xl:inline-block xl:justify-start">
 			Movies
 		</h3>
 		<div
-			class="text-skin-base flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:overflow-y-hidden relative"
+			class="text-skin-base relative flex flex-wrap justify-center sm:flex-nowrap sm:justify-start sm:overflow-y-hidden"
 		>
 			{#each films as movie}
 				<div
-					class="w-[132px] flex justify-center h-60 flex-shrink-0 sm:rounded-lg mb-2 relative m-0.5 sm:mr-3 
-					hover:text-skin-selected
-					neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+					class="hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover relative m-0.5 mb-2 flex h-60 
+					w-[132px]
+					flex-shrink-0 justify-center sm:mr-3 sm:rounded-lg"
 				>
-					<a class="w-28 hover:text-skin-selected" href={`/movie/${movie.id}`}>
-						<p class="text-xs text-center p-1 flex justify-center items-center">
+					<a class="hover:text-skin-selected w-28" href={`/movie/${movie.id}`}>
+						<p class="flex items-center justify-center p-1 text-center text-xs">
 							{movie.release_date ? movie.release_date.substring(0, 4) : 'Unknown date'}
 						</p>
 						<ImageLoader
@@ -44,8 +44,8 @@
 							src={movie.poster_path ? IMAGE_API + movie.poster_path : '/default.jpg'}
 							alt={movie.title}
 						/>
-						<div class="w-28 h-12 p-[3px]">
-							<p class="text-xs text-center flex justify-center items-center line-clamp-2">
+						<div class="h-12 w-28 p-[3px]">
+							<p class="line-clamp-2 flex items-center justify-center text-center text-xs">
 								{movie.title}
 							</p>
 						</div>
@@ -55,20 +55,20 @@
 		</div>
 	{/if}
 	{#if tv}
-		<h3 class="flex xl:inline-block justify-center xl:justify-start  mt-6 mb-1 text-lg font-bold">
+		<h3 class="mt-6 mb-1 flex justify-center  text-lg font-bold xl:inline-block xl:justify-start">
 			TV
 		</h3>
 		<div
-			class="flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:overflow-y-hidden relative"
+			class="relative flex flex-wrap justify-center sm:flex-nowrap sm:justify-start sm:overflow-y-hidden"
 		>
 			{#each tv as show}
 				<div
-					class="w-[132px] flex justify-center h-60 flex-shrink-0 sm:rounded-lg mb-2 relative m-0.5 sm:mr-3
-					hover:text-skin-selected
-					neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover"
+					class="hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover relative m-0.5 mb-2 flex h-60
+					w-[132px]
+					flex-shrink-0 justify-center sm:mr-3 sm:rounded-lg"
 				>
-					<a class="rounded w-28" href={`/tv/${show.id}`}>
-						<p class="text-xs p-1 text-center flex justify-center items-center ">
+					<a class="w-28 rounded" href={`/tv/${show.id}`}>
+						<p class="flex items-center justify-center p-1 text-center text-xs ">
 							{show.first_air_date ? show.first_air_date.substring(0, 4) : 'Unknown date'}
 						</p>
 						<ImageLoader
@@ -76,8 +76,8 @@
 							src={show.poster_path ? IMAGE_API + show.poster_path : '/default.jpg'}
 							alt={show.name}
 						/>
-						<div class="w-28 h-12 p-0.5">
-							<p class="text-xs text-center flex justify-center items-center line-clamp-2">
+						<div class="h-12 w-28 p-0.5">
+							<p class="line-clamp-2 flex items-center justify-center text-center text-xs">
 								{show.name}
 							</p>
 						</div>

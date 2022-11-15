@@ -1,24 +1,42 @@
 <script lang="ts">
-	import NetworkSVG from '$lib/svgs/Network.svelte';
+	import NetworkSvg from '$lib/svgs/Network.svelte';
 	import Network from '$lib/components/Header/Left/Network.svelte';
+	import { slide } from 'svelte/transition';
+	let hovering = 0;
 </script>
 
-<div class="xs:pl-3 pl-1 ">
+<!-- Networks Icon -->
+<div class="xs:pl-3 pl-1">
 	<div class="group relative z-50 inline-block">
 		<button
+			on:mouseover={() => {
+				hovering = 1;
+			}}
+			on:mouseleave={() => {
+				hovering = 0;
+			}}
+			on:focus
 			aria-label="Networks"
-			class="text-skin-inverted hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover inline-flex
-        h-8 min-w-[32px] items-center justify-center rounded-[3px] py-1 px-2 align-middle"
+			class="btn morph btn-group-fill group-hover:neumorphhover dark:group-hover:neumorphdarkhover group h-8 min-w-[32px]
+			justify-center py-1 px-2 align-middle  "
 		>
-			<span>
-				<NetworkSVG />
-			</span>
+			<span class=" fill-header group-hover:fill-selected h-5 w-5"> <NetworkSvg /> </span>
 			<span class="mx-2 hidden xl:block">Networks</span>
 		</button>
-		<ul
-			class="bg-skin-primary text-skin-base absolute hidden overflow-y-auto overflow-x-hidden rounded group-hover:block"
-		>
-			<Network />
-		</ul>
+		{#if hovering}
+			<ul
+				on:mouseover={() => {
+					hovering = 1;
+				}}
+				on:mouseleave={() => {
+					hovering = 0;
+				}}
+				on:focus
+				transition:slide
+				class="bg-skin-header text-skin-base absolute w-32 overflow-y-auto overflow-x-hidden rounded group-hover:block"
+			>
+				<Network />
+			</ul>
+		{/if}
 	</div>
 </div>

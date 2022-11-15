@@ -12,12 +12,9 @@
 	<button
 		on:click|preventDefault={toggleHome}
 		aria-label="home"
-		class=" text-skin-inverted hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover 
-				inline-flex items-center rounded-[3px] border-none p-[2px]"
+		class=" btn morph btn-fill h-9 w-9 p-1"
 		href="/"
 	>
-		<div class="fill-inverted hover:fill-selected h-8 w-8">
-			<Home />
-		</div>
+		<Home />
 	</button>
 </div>

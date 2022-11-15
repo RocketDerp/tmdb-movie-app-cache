@@ -9,9 +9,8 @@ export const handle: Handle = async ({ event, resolve }) => {
         event.cookies.set('theme', 'dark', { httpOnly: false, secure: false, sameSite: 'lax', path: '/', expires: new Date('Wed, 29 Dec 9999 23:59:59 GMT') });
     }
     if (!region) {
-        const options = Intl.DateTimeFormat().resolvedOptions();
-        region = options.locale;
-        console.log('hooks, region , options ==>', region)
+        const language = event.request.headers.get('accept-language')
+        region = language?.substring(0, 5) || 'en-GB'
         event.cookies.set('region', region, { httpOnly: false, secure: false, sameSite: 'lax', path: '/', expires: new Date('Wed, 29 Dec 9999 23:59:59 GMT') });
     }
     event.locals.region = { locale: region }

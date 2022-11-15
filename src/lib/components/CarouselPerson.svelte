@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="h-62 hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover relative m-0.5 mb-2 flex 
+	class="h-62 hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover relative m-0.5 mb-2 flex 
         w-[132px] flex-shrink-0
         justify-center pt-2 sm:mr-3 sm:rounded-lg"
 >

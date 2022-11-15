@@ -5,32 +5,54 @@
 
 @layer components {
 	.neumorph {
-		background: var(--color-shadow-bg);
+		/* background: var(--color-shadow-bg); */
 		border: none;
-		box-shadow: 1px 1px 2px var(--color-shadow-1), -2px -2px 4px var(--color-shadow-2);
+		/* box-shadow: 1px 1px 2px var(--color-shadow-1), -2px -2px 4px var(--color-shadow-2); */
+		box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, 0.7), 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
 	}
 	.neumorphhover {
-		box-shadow: inset 2px 2px 4px var(--color-shadow-3), -2px -2px 4px var(--color-shadow-4);
-		filter: brightness(1.05);
+		/* box-shadow: inset 2px 2px 4px var(--color-shadow-3), -2px -2px 4px var(--color-shadow-4); */
+		box-shadow: inset -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
+			inset 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+		/* filter: brightness(1.05); */
 	}
 	.neumorphdark {
-		background: var(--color-shadow-bg);
-		box-shadow: 2px 2px 4px var(--color-shadow-1), -2px -2px 6px var(--color-shadow-2);
+		/* background: var(--color-shadow-bg); */
+		/* box-shadow: 2px 2px 4px var(--color-shadow-1), -2px -2px 6px var(--color-shadow-2); */
+		box-shadow: -7px -7px 20px 0 rgba(0, 0, 0, 0.7), 7px 7px 20px 0 rgba(255, 255, 255, 0.2);
 	}
 	.neumorphdarkhover {
-		box-shadow: inset 2px 2px 4px var(--color-shadow-3), -2px -2px 4px var(--color-shadow-4);
-		background: #4d4d4d;
+		/* box-shadow: inset 2px 2px 4px var(--color-shadow-3), -2px -2px 4px var(--color-shadow-4); */
+		box-shadow: inset -7px -7px 20px 0 rgba(255, 255, 255, 0.2),
+			inset 7px 7px 20px 0 rgba(0, 0, 0, 0.7);
+	}
+	.morph {
+		@apply neumorph dark:neumorphdark hover:neumorphhover dark:hover:neumorphdarkhover;
+	}
+	.morph-group {
+		@apply neumorph dark:neumorphdark group-hover:neumorphhover dark:group-hover:neumorphdarkhover;
+	}
+	.btn {
+		@apply inline-flex items-center rounded-full border-none bg-skin-header text-skin-header hover:text-skin-selected;
+	}
+	.btn-fill {
+		@apply fill-header hover:fill-selected;
+	}
+	.btn-group-fill {
+		@apply fill-header group-hover:fill-selected group-hover:text-skin-selected;
 	}
 }
 
 @layer base {
 	.light {
-		--color-text-base: #120f0f;
+		--color-text-base: rgb(36, 53, 107);
+		--color-text-header: #379696;
 		--color-text-muted: #472c3b;
 		--color-text-inverted: #4f4949;
 		--color-text-muted-inverted: #521111;
 		--color-text-selected: #090dfa;
 		--color-bg: #ecedf4;
+		--color-header: rgb(214, 214, 214);
 		--color-primary: #e3e3f1;
 		--color-secondary: #a8b0b7;
 		--color-tertiary: #80a9c8;
@@ -44,11 +66,13 @@
 
 	.dark {
 		--color-text-base: #09d3ac;
+		--color-text-header: #08e3bd;
 		--color-text-muted: #ffffff;
 		--color-text-inverted: #ececec;
 		--color-text-muted-inverted: #616161;
-		--color-text-selected: #c60000;
+		--color-text-selected: #eae717;
 		--color-bg: #000000;
+		--color-header: #3f3f3f;
 		--color-primary: #515151;
 		--color-secondary: #3a3a3a;
 		--color-tertiary: #1c1c1c;

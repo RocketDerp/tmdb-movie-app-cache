@@ -15,23 +15,19 @@
 	<button
 		aria-label="Movies"
 		on:click|preventDefault={toggleMovie}
-		class="min-w-8 text-skin-inverted hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover m-2 
-			inline-flex h-8 items-center justify-center rounded-[3px] py-1 px-2 align-middle"
+		class="btn morph btn-fill mt-2 h-8 min-w-[32px] justify-center py-1 px-2 align-middle"
 	>
-		<MovieSvg />
+		<span class="  h-5 w-5"> <MovieSvg /> </span>
 		<span class="mx-2">Movies</span>
 	</button>
 
 	<button
 		aria-label="TV Shows"
 		on:click|preventDefault={toggleTv}
-		class="min-w-8 text-skin-inverted hover:text-skin-selected neumorph 
-			hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover m-2 
-			inline-flex h-8 items-center justify-center rounded-[3px] py-1 px-2 align-middle"
+		class="btn morph btn-fill my-2 h-8 min-w-[32px] justify-center py-1 px-2 align-middle"
 	>
-		<span>
-			<ShowSvg />
-		</span>
+		<span class="h-5 w-5"> <ShowSvg /> </span>
+
 		<span class="mx-2">Tv</span>
 	</button>
 </div>

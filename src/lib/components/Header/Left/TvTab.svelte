@@ -8,18 +8,15 @@
 </script>
 
 <!-- TV Icon -->
-<div class="xs:pl-3 pl-1 ">
-	<div class="group relative z-50 inline-block">
+<div class="xs:pl-3 flex pl-1 ">
+	<div class="relative z-50 inline-block">
 		<button
-			aria-label="TV Shows"
+			aria-label="Tv Shows"
 			on:click|preventDefault={toggleTv}
-			class="text-skin-inverted hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover inline-flex 
-        h-8 min-w-[32px] items-center justify-center rounded-[3px] py-1 px-2 align-middle"
+			class="btn morph btn-fill h-8 min-w-[32px] justify-center py-1 px-2 align-middle"
 		>
-			<span>
-				<ShowSvg />
-			</span>
-			<span class="mx-2 hidden xl:block">Tv</span>
+			<span class="h-5 w-5"> <ShowSvg /> </span>
+			<span class="mx-2 hidden xl:block">TV</span>
 		</button>
 	</div>
 </div>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as flag from '$lib/svgs/flags//index';
 	import { page } from '$app/stores';
+	import { fly, fade, slide } from 'svelte/transition';
 
 	export let watchers_details: WatchersType;
 	export let media: string;
@@ -42,7 +43,7 @@
 						<!-- dropdown -->
 						<div
 							class="text-skin-inverted hover:text-skin-selected neumorph 
-						group-hover:neumorphhover dark:neumorphdark dark:group-hover:neumorphhover w-44 "
+							group-hover:neumorphhover dark:neumorphdark dark:group-hover:neumorphdarkhover w-44"
 						>
 							<!-- dropdown button  -->
 							<div class="flex flex-row items-center justify-center">
@@ -63,7 +64,7 @@
 										class=" justify-center pt-[7px]"
 									>
 										<div
-											class=" neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover flex 
+											class=" neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover flex 
 										w-44 flex-row items-center pl-3
 									"
 										>
@@ -90,7 +91,7 @@
 				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].free as free}
 						<div
-							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-2 flex w-24 flex-col items-center pb-2"
+							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover ml-2 flex w-24 flex-col items-center pb-2"
 						>
 							<a href={`/network/${media}/${free.provider_id}`}>
 								<img
@@ -109,7 +110,7 @@
 				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].buy as buy}
 						<div
-							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-2 flex w-24 flex-col items-center pb-2"
+							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover ml-2 flex w-24 flex-col items-center pb-2"
 						>
 							<a href={`/network/${media}/${buy.provider_id}`}>
 								<img
@@ -128,7 +129,7 @@
 				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].rent as rent}
 						<div
-							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-2 flex w-24 flex-col items-center pb-2"
+							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover ml-2 flex w-24 flex-col items-center pb-2"
 						>
 							<a href={`/network/${media}/${rent.provider_id}`}>
 								<img
@@ -147,7 +148,7 @@
 				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].flatrate as flatrate}
 						<div
-							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphhover ml-2 flex w-24 flex-col items-center pb-2"
+							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover ml-2 flex w-24 flex-col items-center pb-2"
 						>
 							<a href={`/network/${media}/${flatrate.provider_id}`}>
 								<img

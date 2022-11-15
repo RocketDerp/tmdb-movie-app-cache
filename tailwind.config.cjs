@@ -4,7 +4,6 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts,svg}'],
 	darkMode: 'class',
 	theme: {
-		
 		extend: {
 			screens: {
 			'xs': '420px',
@@ -20,10 +19,12 @@ const config = {
 			},
 			fill: {
 				base: 'var(--color-text-base)',
+				header: 'var(--color-text-header)',
 				inverted: 'var(--color-text-inverted)',
 				selected: 'var(--color-text-selected)'
 			},
 			stroke: {
+				header: 'var(--color-text-header)',
 				inverted: 'var(--color-text-inverted)',
 				selected: 'var(--color-text-selected)'
 			},
@@ -31,6 +32,7 @@ const config = {
 				skin: {
 					base: 'var(--color-text-base)',
 					muted: 'var(--color-text-muted)',
+					header: 'var(--color-text-header)',
 					inverted: 'var(--color-text-inverted)',
 					selected: 'var(--color-text-selected)',
 					mutedinverted: 'var(--color-text-muted-inverted)'
@@ -49,6 +51,7 @@ const config = {
 				skin: {
 					primary: 'var(--color-primary)',
 					secondary: 'var(--color-secondary)',
+					header: 'var(--color-header)',
 					tertiary: 'var(--color-tertiary)',
 					bg: 'var(--color-bg)',
 					border: 'var(--color-border)',

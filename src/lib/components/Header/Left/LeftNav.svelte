@@ -12,6 +12,6 @@
 	<MovieTab />
 	<TvTab />
 	<PersonTab />
-	<GenreTab />
 	<NetworkTab />
+	<GenreTab />
 </section>
