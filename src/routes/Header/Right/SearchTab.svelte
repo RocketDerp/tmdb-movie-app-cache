@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { clickOutside } from '$lib/components/Header/Left/click_outside';
+	import { clickOutside } from '../click_outside';
 	import MovieSvg from '$lib/svgs/MovieSvg.svelte';
 	import ShowSvg from '$lib/svgs/ShowSvg.svelte';
 	import PersonSvg from '$lib/svgs/PersonSvg.svelte';
@@ -49,9 +49,9 @@
 				use:clickOutside
 				on:outclick={() => (isShowing = false)}
 			>
-				<div class="text-skin-header bg-skin-header mx-auto mt-2 flex max-w-7xl">
+				<div class="text-skin-base bg-skin-base mx-auto mt-2 flex max-w-7xl">
 					<form
-						class="text-skin-header flex w-full flex-col sm:p-2"
+						class="text-skin-base flex w-full flex-col sm:p-2"
 						label="search form"
 						on:submit|preventDefault={handleSearch}
 					>
@@ -59,12 +59,12 @@
 							<div class="flex items-center sm:w-[76px]">
 								<p>Search in {selectedMedia.name}</p>
 							</div>
-							<span class="fill-header flex h-8 w-8 items-center justify-center ">
+							<span class="fill-base flex h-8 w-8 items-center justify-center ">
 								<svelte:component this={selectedMedia.component} />
 							</span>
 							<input
 								label="search"
-								class="text-skin-header neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorhdarkhove ml-3 
+								class="text-skin-base neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorhdarkhove ml-3 
                                 flex w-full border-2 bg-transparent pl-3 text-lg outline-none"
 								type="text"
 								placeholder="Search..."
@@ -77,7 +77,7 @@
 									on:keydown
 									on:click={() => (selectedMedia = option)}
 									class="btn morph btn-fill mx-2 my-1 flex cursor-pointer flex-row gap-3 py-1 pl-1 sm:px-4"
-									class:text-skin-header={selectedMedia}
+									class:text-skin-base={selectedMedia}
 									value={option.id}
 								>
 									<span>in</span>

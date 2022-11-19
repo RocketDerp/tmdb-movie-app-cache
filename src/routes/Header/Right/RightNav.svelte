@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ToggleDarkMode from '$lib/components/Header/Right/ThemeTab.svelte';
+	import ToggleDarkMode from './ThemeTab.svelte';
 	import Region from './RegionTab.svelte';
 
 	import Search from './SearchTab.svelte';

@@ -5,16 +5,16 @@
 	let percent = Math.floor(datum.vote_average * 10);
 </script>
 
-<section id="flip-card" class="perspective-1000 group my-0.5 w-44 xl:my-2 xl:w-60 xl:rounded-lg">
+<section id="flip-card" class=" perspective-1000 group my-0.5 w-44 xl:my-2 xl:w-60 xl:rounded-lg">
 	<div
 		id="flip-card-inner"
-		class="transition-transform-6 preserve-3d group-hover:rotate-y-180 relative w-full"
+		class="neumorph preserve-3d group-hover:rotate-y-180 relative w-full duration-700 xl:rounded-lg"
 	>
 		<div
 			id="flip-card-front"
-			class="backface-hidden text-skin-base bg-skin-bg top-0 right-0 xl:rounded-lg"
+			class=" backface-hidden text-skin-base bg-skin-bg top-0 right-0 xl:rounded-lg"
 		>
-			<div class="xl:h-90 h-[264px]">
+			<div class="xl:h-90 h-[264px] w-44 xl:w-60 ">
 				{#if datum.poster_path && datum.title}
 					<SrcSet image_path={datum.poster_path} image_title={datum.title} />
 				{:else}
@@ -48,10 +48,11 @@
 			</div>
 		</div>
 		<a
-			class="backface-hidden text-skin-base bg-skin-bg text-decoration-none rotate-y-180 movie-back absolute top-0 bottom-0 right-0 z-10 h-full w-full overflow-auto rounded-lg p-2 text-sm duration-300 ease-in-out"
+			class="neumorphhover backface-hidden text-skin-base bg-skin-bg text-decoration-none rotate-y-180 movie-back 
+			absolute top-0 bottom-0 right-0 z-10 h-full w-full overflow-auto p-2 text-sm duration-300 ease-in-out xl:rounded-lg"
 			href={`/movie/${datum.id}`}
 		>
-			<h6 class="text-skin-base bg-secondary mt-1 rounded uppercase xl:text-lg">Overview</h6>
+			<h6 class="text-skin-base bg-secondary mt-1 uppercase xl:rounded xl:text-lg">Overview</h6>
 			<p class="mt-1 text-sm">{datum.overview}</p>
 		</a>
 	</div>

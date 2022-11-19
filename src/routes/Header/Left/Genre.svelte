@@ -5,12 +5,12 @@
 	import ShowSvg from '$lib/svgs/ShowSvg.svelte';
 </script>
 
-<div class="text-skin-header bg-skin-header h-full w-full">
-	<div class="bg-skin-header flex flex-row p-1 ">
+<div class="text-skin-base bg-skin-base h-full w-full">
+	<div class="bg-skin-base flex flex-row p-1 ">
 		<!-- Movie Genre List  -->
-		<div class="bg-skin-header m-1 flex flex-col  p-3">
-			<h6 class="text-skin-header flex flex-row">
-				<span class="fill-header mr-2 h-6 w-6">
+		<div class="bg-skin-base m-1 flex flex-col  p-3">
+			<h6 class="text-skin-base flex flex-row">
+				<span class="fill-base mr-2 h-6 w-6">
 					<MovieSvg />
 				</span>Movies
 			</h6>
@@ -34,9 +34,9 @@
 		</div>
 
 		<!-- Movie Tv List  -->
-		<div class="bg-skin-header m-1 flex flex-col  p-3">
-			<h6 class="text-skin-header flex flex-row uppercase">
-				<span class="fill-header mr-2 h-6 w-6">
+		<div class="bg-skin-base m-1 flex flex-col  p-3">
+			<h6 class="text-skin-base flex flex-row uppercase">
+				<span class="fill-base mr-2 h-6 w-6">
 					<ShowSvg />
 				</span>Tv
 			</h6>

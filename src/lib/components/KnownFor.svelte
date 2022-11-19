@@ -31,7 +31,7 @@
 		>
 			{#each films as movie}
 				<div
-					class="hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover relative m-0.5 mb-2 flex h-60 
+					class="hover:text-skin-selected morph relative m-0.5 mb-2 flex h-60 
 					w-[132px]
 					flex-shrink-0 justify-center sm:mr-3 sm:rounded-lg"
 				>
@@ -63,7 +63,7 @@
 		>
 			{#each tv as show}
 				<div
-					class="hover:text-skin-selected neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover relative m-0.5 mb-2 flex h-60
+					class="hover:text-skin-selected morph relative m-0.5 mb-2 flex h-60
 					w-[132px]
 					flex-shrink-0 justify-center sm:mr-3 sm:rounded-lg"
 				>

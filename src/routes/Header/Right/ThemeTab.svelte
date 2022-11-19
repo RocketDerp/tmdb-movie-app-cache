@@ -1,6 +1,6 @@
 <script>
 	import { theme } from '$lib/stores/store';
-	import { toggleTheme } from '$lib/components/Header/Right/toggleTheme';
+	import { toggleTheme } from './toggleTheme';
 	import Sun from '$lib/svgs/Sun.svelte';
 	import Moon from '$lib/svgs//Moon.svelte';
 </script>
@@ -15,7 +15,7 @@
 			}}
 		>
 			<span
-				class="fill-header stroke-header hover:stroke-selected hover:fill-selected hidden h-5 w-5 dark:block"
+				class="fill-base stroke-base hover:stroke-selected hover:fill-selected hidden h-5 w-5 dark:block"
 			>
 				<Sun />
 			</span>

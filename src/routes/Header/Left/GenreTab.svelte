@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Genre from '$lib/components/Header/Left/Genre.svelte';
+	import Genre from './Genre.svelte';
 	import GenreSvg from '$lib/svgs/GenreSvg.svelte';
 	import { slide } from 'svelte/transition';
 	let hovering = 0;
@@ -32,7 +32,7 @@
 				}}
 				on:focus
 				transition:slide
-				class="bg-skin-header text-skin-header fixed left-0 h-[80%] overflow-y-auto overflow-x-hidden rounded group-hover:block xl:absolute xl:min-h-[85vh]"
+				class="bg-skin-base text-skin-base fixed left-0 h-[80%] overflow-y-auto overflow-x-hidden rounded group-hover:block xl:absolute xl:min-h-[85vh]"
 			>
 				<Genre />
 			</ul>

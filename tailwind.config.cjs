@@ -24,6 +24,7 @@ const config = {
 				selected: 'var(--color-text-selected)'
 			},
 			stroke: {
+				base: 'var(--color-text-base)',
 				header: 'var(--color-text-header)',
 				inverted: 'var(--color-text-inverted)',
 				selected: 'var(--color-text-selected)'
@@ -49,6 +50,7 @@ const config = {
 			},
 			backgroundColor: {
 				skin: {
+					base: 'var(--color-base)',
 					primary: 'var(--color-primary)',
 					secondary: 'var(--color-secondary)',
 					header: 'var(--color-header)',

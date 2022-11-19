@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as flag from '$lib/svgs/flags//index';
 	import { page } from '$app/stores';
-	import { fly, fade, slide } from 'svelte/transition';
+	// import { fly, fade, slide } from 'svelte/transition';
 
 	export let watchers_details: WatchersType;
 	export let media: string;
@@ -41,10 +41,7 @@
 				<div class="flex justify-end">
 					<div class="group relative z-10 mt-2 mr-8 xl:mt-0">
 						<!-- dropdown -->
-						<div
-							class="text-skin-inverted hover:text-skin-selected neumorph 
-							group-hover:neumorphhover dark:neumorphdark dark:group-hover:neumorphdarkhover w-44"
-						>
+						<div class="text-skin-inverted hover:text-skin-selected morph-group w-44">
 							<!-- dropdown button  -->
 							<div class="flex flex-row items-center justify-center">
 								<div class="h-3 w-4">
@@ -64,7 +61,7 @@
 										class=" justify-center pt-[7px]"
 									>
 										<div
-											class=" neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover flex 
+											class=" morph flex 
 										w-44 flex-row items-center pl-3
 									"
 										>
@@ -90,9 +87,7 @@
 				<h2 class="text-skin-base pl-2 text-lg">FreeView</h2>
 				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].free as free}
-						<div
-							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover ml-2 flex w-24 flex-col items-center pb-2"
-						>
+						<div class="morph ml-2 flex w-24 flex-col items-center pb-2">
 							<a href={`/network/${media}/${free.provider_id}`}>
 								<img
 									class="mt-1 h-20"
@@ -109,9 +104,7 @@
 				<h2 class="text-skin-base pl-2 text-lg">Buy</h2>
 				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].buy as buy}
-						<div
-							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover ml-2 flex w-24 flex-col items-center pb-2"
-						>
+						<div class="morph ml-2 flex w-24 flex-col items-center pb-2">
 							<a href={`/network/${media}/${buy.provider_id}`}>
 								<img
 									class="mt-1 h-20"
@@ -128,9 +121,7 @@
 				<h2 class="text-skin-base pl-2 text-lg ">Rent</h2>
 				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].rent as rent}
-						<div
-							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover ml-2 flex w-24 flex-col items-center pb-2"
-						>
+						<div class="morph ml-2 flex w-24 flex-col items-center pb-2">
 							<a href={`/network/${media}/${rent.provider_id}`}>
 								<img
 									class="mt-1 h-20"
@@ -147,9 +138,7 @@
 				<h2 class="text-skin-base pl-2 text-lg ">Subscription</h2>
 				<div class="mb-4 flex w-full flex-row flex-wrap py-2">
 					{#each watchers_details[i_code].flatrate as flatrate}
-						<div
-							class="neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorphdarkhover ml-2 flex w-24 flex-col items-center pb-2"
-						>
+						<div class="morph ml-2 flex w-24 flex-col items-center pb-2">
 							<a href={`/network/${media}/${flatrate.provider_id}`}>
 								<img
 									class="mt-1 h-20"

@@ -5,21 +5,21 @@
 	let percent = Math.floor(datum.vote_average * 10);
 </script>
 
-<section id="flip-card" class="group perspective-1000 w-44 xl:w-60 my-0.5 xl:my-2 xl:rounded-lg">
+<section id="flip-card" class=" perspective-1000 group my-0.5 w-44 xl:my-2 xl:w-60 xl:rounded-lg">
 	<div
 		id="flip-card-inner"
-		class="relative w-full duration-700 preserve-3d group-hover:rotate-y-180"
+		class="neumorph preserve-3d group-hover:rotate-y-180 relative w-full duration-700 xl:rounded-lg"
 	>
 		<div
 			id="flip-card-front"
-			class="top-0 right-0 backface-hidden text-skin-base bg-skin-bg xl:rounded-lg"
+			class="morph backface-hidden text-skin-base bg-skin-bg top-0 right-0 xl:rounded-lg"
 		>
-			<div class="w-44 h-[264px] xl:w-60 xl:h-90 ">
+			<div class="xl:h-90 h-[264px] w-44 xl:w-60 ">
 				{#if datum.poster_path && datum.name}
 					<SrcSet image_path={datum.poster_path} image_title={datum.name} />
 				{:else}
 					<img
-						class="oject-cover w-44 h-[264px] xl:w-60 xl:h-90 xl:rounded-t-lg  text-skin-muted "
+						class="oject-cover xl:h-90 text-skin-muted h-[264px] w-44 xl:w-60  xl:rounded-t-lg "
 						src="/default.jpg"
 						alt={datum.name}
 						loading="lazy"
@@ -28,7 +28,7 @@
 			</div>
 			<div class="p-2 xl:ml-4">
 				<h6
-					class="w-40 overflow-hidden text-sm xl:text-md text-skin-base xl:w-52 whitespace-nowrap overflow-ellipsis"
+					class="xl:text-md text-skin-base w-40 overflow-hidden overflow-ellipsis whitespace-nowrap text-sm xl:w-52"
 				>
 					{datum.name ? datum.name : ' '}
 				</h6>
@@ -37,21 +37,22 @@
 				</h6>
 			</div>
 			<div
-				class="absolute origin-top-left h-12 w-12 p-0 rounded-full bg-black left-1 top-56 xl:top-80"
+				class="absolute left-1 top-56 h-12 w-12 origin-top-left rounded-full bg-black p-0 xl:top-80"
 			>
 				<ProgressBar {percent} />
-				<div class="absolute top-0 left-[1px] w-full h-full flex justify-center items-center">
-					<p class="text-gray-200 text-base">
-						{percent}<span class="text-[0.5rem] leading-4 align-top">%</span>
+				<div class="absolute top-0 left-[1px] flex h-full w-full items-center justify-center">
+					<p class="text-base text-gray-200">
+						{percent}<span class="align-top text-[0.5rem] leading-4">%</span>
 					</p>
 				</div>
 			</div>
 		</div>
 		<a
-			class="absolute top-0 bottom-0 right-0 z-10 w-full h-full p-2 overflow-auto text-sm duration-300 ease-in-out xl:rounded-lg backface-hidden text-skin-base bg-skin-bg text-decoration-none rotate-y-180 movie-back"
+			class="neumorphhover backface-hidden text-skin-base bg-skin-bg text-decoration-none rotate-y-180 movie-back 
+			absolute top-0 bottom-0 right-0 z-10 h-full w-full overflow-auto p-2 text-sm duration-300 ease-in-out xl:rounded-lg"
 			href={`/tv/${datum.id}`}
 		>
-			<h6 class="mt-1 uppercase xl:rounded xl:text-xl text-skin-base bg-secondary">Overview</h6>
+			<h6 class="text-skin-base bg-secondary mt-1 uppercase xl:rounded xl:text-xl">Overview</h6>
 			<p class="mt-1 text-sm">{datum.overview}</p>
 		</a>
 	</div>

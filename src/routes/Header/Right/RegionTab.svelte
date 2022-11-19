@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as flag from '$lib/svgs/flags//index';
-	import { selectRegion } from '$lib/components/Header/Right/selectRegion';
+	import { selectRegion } from './selectRegion';
 	import { invalidateAll } from '$app/navigation';
 	import { region } from '$lib/stores/store';
 	import { page } from '$app/stores';
@@ -58,7 +58,7 @@
 		{#if hovering}
 			<ul
 				transition:slide
-				class="bg-skin-header text-skin-header absolute right-0 overflow-y-auto overflow-x-hidden rounded group-hover:block xl:-right-10"
+				class="bg-skin-base text-skin-base absolute right-0 overflow-y-auto overflow-x-hidden rounded group-hover:block xl:-right-10"
 			>
 				{#each CountryCode as { component, name }, index}
 					<button on:click={() => changeRegion(index)} class=" mx-3 mb-1 justify-center py-[4px]">
