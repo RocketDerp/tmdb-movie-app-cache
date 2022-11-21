@@ -1,4 +1,4 @@
-import type { RequestHandler } from '@sveltejs/kit';
+import type { RequestHandler } from './$types'
 import { error } from "@sveltejs/kit";
 import { API_KEY } from '$env/static/private';
 
