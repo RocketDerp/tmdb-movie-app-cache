@@ -34,13 +34,10 @@
 
 <section
 	id="TV Media"
-	class="bg-contain bg-right-top bg-no-repeat text-white md:mt-2 xl:rounded-2xl"
+	class="text-skin-secondary bg-contain bg-right-top bg-no-repeat md:mt-2 xl:rounded-2xl"
 	style="background-image: url({IMAGE_API}original/{tv_details.backdrop_path})"
 >
-	<div
-		class="bg-gradient-to-r xl:rounded-2xl"
-		style="background-image: linear-gradient(to right, rgb(5, 69, 112) 150px, rgba(37, 137, 204, 0.84) 100%)"
-	>
+	<div class="backdrop xl:rounded-2xl">
 		<div
 			class="mx-auto grid max-w-7xl px-10 py-8 md:grid-cols-[20rem_minmax(0,_1fr)_minmax(0,_1fr)_minmax(0,_1fr)] md:rounded-2xl"
 		>
@@ -57,7 +54,7 @@
 				<div class="mt-6 mb-6 flex w-full flex-wrap md:mt-0">
 					<h4 class="w-full md:text-4xl">
 						{tv_details.name}
-						<span class="ml-1 text-lg text-white md:text-4xl">
+						<span class="text-skin-secondary ml-1 text-lg md:text-4xl">
 							{tv_details ? tv_details.first_air_date.substring(0, 4) : ''}
 						</span>
 					</h4>

@@ -4,7 +4,7 @@
 	import { theme } from '$lib/stores/store';
 	import { region } from '$lib/stores/store';
 	import Header from './Header/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Footer from './Footer.svelte';
 	import type { LayoutData } from './$types';
 	import { tv_genres, movie_genres } from '$lib/stores/store';
 

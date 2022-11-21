@@ -42,9 +42,3 @@
 		</div>
 	</a>
 </div>
-<!-- <CarouselPerson
-					profile_path={person?.profile_path || ''}
-					id={person.id}
-					name={person.name}
-					role={person.roles[0].character}
-				/> -->

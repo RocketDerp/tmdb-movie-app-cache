@@ -4,10 +4,6 @@
 	import { goto } from '$app/navigation';
 
 	export let datum: PersonResult;
-	function gotoPerson(page_no: number) {
-		goto(`/person/${page_no}`);
-	}
-
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w500';
 </script>
 

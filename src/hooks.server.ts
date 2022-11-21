@@ -5,8 +5,8 @@ export const handle: Handle = async ({ event, resolve }) => {
     let region = event.cookies.get('region');
 
     if (!theme) {
-        theme = 'dark'
-        event.cookies.set('theme', 'dark', { httpOnly: false, secure: false, sameSite: 'lax', path: '/', expires: new Date('Wed, 29 Dec 9999 23:59:59 GMT') });
+        theme = 'light'
+        event.cookies.set('theme', 'light', { httpOnly: false, secure: false, sameSite: 'lax', path: '/', expires: new Date('Wed, 29 Dec 9999 23:59:59 GMT') });
     }
     if (!region) {
         const language = event.request.headers.get('accept-language')

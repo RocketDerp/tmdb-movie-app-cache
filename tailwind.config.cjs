@@ -33,7 +33,7 @@ const config = {
 				skin: {
 					base: 'var(--color-text-base)',
 					muted: 'var(--color-text-muted)',
-					header: 'var(--color-text-header)',
+					secondary: 'var(--color-text-secondary)',
 					inverted: 'var(--color-text-inverted)',
 					selected: 'var(--color-text-selected)',
 					mutedinverted: 'var(--color-text-muted-inverted)'

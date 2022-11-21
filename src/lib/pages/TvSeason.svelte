@@ -3,10 +3,10 @@
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w500/';
 	export let season_details: SeasonType;
 	export let tv_id: string;
-	let cast: CastType[] = [];
-	$: {
-		cast = season_details.aggregate_credits.cast;
-	}
+	// let cast: CastType[] = [];
+	// $: {
+	// 	cast = season_details.aggregate_credits.cast;
+	// }
 </script>
 
 <section id="season">

@@ -2,7 +2,7 @@
 	import TmdbSvg from '$lib/svgs/TmdbSvg.svelte';
 </script>
 
-<footer class="bg-skin-primary fixed bottom-0 z-50 w-full">
+<footer class="bg-skin-base shadow-top fixed bottom-0 z-50 w-full">
 	<div class="mx-auto flex max-w-7xl flex-col md:flex-row md:justify-between ">
 		<div
 			class="mx-auto flex h-6 max-w-7xl flex-row items-center justify-between pl-2 pr-1 md:flex-shrink md:pl-5 lg:pl-7 "
@@ -24,6 +24,7 @@
 			<div class="h-[6px] px-2 md:h-[10px]">
 				<TmdbSvg />
 			</div>
+			<p>Api</p>
 		</div>
 	</div>
 </footer>

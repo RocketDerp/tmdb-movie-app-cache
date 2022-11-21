@@ -8,7 +8,7 @@
 <section id="flip-card" class=" perspective-1000 group my-0.5 w-44 xl:my-2 xl:w-60 xl:rounded-lg">
 	<div
 		id="flip-card-inner"
-		class="neumorph preserve-3d group-hover:rotate-y-180 relative w-full duration-700 xl:rounded-lg"
+		class="neumorph preserve-3d group-hover:rotate-y-180 relative w-full duration-700 hover:shadow-none xl:rounded-lg"
 	>
 		<div
 			id="flip-card-front"

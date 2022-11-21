@@ -35,15 +35,10 @@
 
 <section
 	id="Movie Media"
-	class="bg-contain bg-right-top bg-no-repeat text-white xl:mt-5 xl:rounded-2xl"
+	class="text-skin-secondary bg-contain bg-right-top bg-no-repeat xl:mt-5 xl:rounded-2xl"
+	style="background-image: url({IMAGE_API}original/{movie_details.backdrop_path})"
 >
-	{#if movie_details.backdrop_path}
-		<div style="background-image: url({IMAGE_API}original/{movie_details.backdrop_path})" />
-	{/if}
-	<div
-		class="bg-gradient-to-r xl:rounded-2xl"
-		style="background-image: linear-gradient(to right, rgb(5, 69, 112) 150px, rgba(37, 137, 204, 0.84) 100%)"
-	>
+	<div class="backdrop xl:rounded-2xl">
 		<div
 			class="mx-auto grid max-w-7xl px-10 py-8 md:grid-cols-[20rem_minmax(0,_1fr)_minmax(0,_1fr)_minmax(0,_1fr)] md:rounded-2xl"
 		>
@@ -60,7 +55,7 @@
 				<div class="mt-6 flex w-full flex-wrap md:mt-0">
 					<h4 class="w-full md:flex md:text-4xl">
 						{movie_details.title}
-						<span class="ml-1 text-lg text-white md:text-4xl">
+						<span class="text-skin-secondary ml-1 text-lg md:text-4xl">
 							{movie_details.release_date ? movie_details.release_date.substring(0, 4) : ''}
 						</span>
 					</h4>

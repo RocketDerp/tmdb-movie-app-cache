@@ -4,6 +4,15 @@
 @tailwind utilities;
 
 @layer components {
+	.shadow-bottom {
+		box-shadow: 0 3px 6px 2px var(--box-shadow);
+	}
+	.shadow-top {
+		box-shadow: 0 -3px 6px 2px var(--box-shadow);
+	}
+	.backdrop {
+		background-image: linear-gradient(to right, var(--linear-from) 150px, var(--linear-to) 100%);
+	}
 	.neumorph {
 		box-shadow: -5px -5px 10px 0 var(--color-shadow-1), 5px 5px 10px 0 var(--color-shadow-2);
 	}
@@ -33,7 +42,7 @@
 	.light {
 		--color-text-base: #379696;
 		--color-text-header: #0f0;
-		--color-text-muted: #472c3b;
+		--color-text-secondary: #000;
 		--color-text-inverted: #4f4949;
 		--color-text-muted-inverted: #521111;
 		--color-text-selected: #090dfa;
@@ -49,11 +58,14 @@
 		--color-shadow-2: rgba(0, 0, 0, 0.4);
 		--color-shadow-3: rgba(255, 255, 255, 0.8);
 		--color-shadow-4: rgba(0, 0, 0, 0.4);
+		--linear-from: rgb(141, 151, 157);
+		--linear-to: rgb(214, 214, 214, 0.47);
+		--box-shadow: #bbb;
 	}
 
 	.dark {
 		--color-text-base: #08e3bd;
-		--color-text-header: #0f0;
+		--color-text-secondary: #fff;
 		--color-text-muted: #ffffff;
 		--color-text-inverted: #ececec;
 		--color-text-muted-inverted: #616161;
@@ -70,6 +82,33 @@
 		--color-shadow-2: rgba(0, 0, 0, 0.7);
 		--color-shadow-3: rgba(83, 76, 75, 0.67);
 		--color-shadow-4: rgba(0, 0, 0, 0.7);
+		--linear-from: rgb(29, 23, 23);
+		--linear-to: rgba(139, 145, 149, 0.84);
+		--box-shadow: rgb(21, 5, 5);
+	}
+
+	.blood {
+		--color-text-base: #d6d3e2;
+		--color-text-secondary: #fff;
+		--color-text-muted: #ffffff;
+		--color-text-inverted: #ececec;
+		--color-text-muted-inverted: #616161;
+		--color-text-selected: #eae717;
+		--color-bg: #000;
+		--color-base: #970707;
+		--color-header: #00f;
+		--color-primary: #b91313;
+		--color-secondary: #3a3a3a;
+		--color-tertiary: #1c1c1c;
+		--color-border: #1d536d;
+		--color-shadow-bg: #515151;
+		--color-shadow-1: rgba(255, 255, 255, 0.1);
+		--color-shadow-2: rgba(0, 0, 0, 0.7);
+		--color-shadow-3: rgba(83, 76, 75, 0.67);
+		--color-shadow-4: rgba(0, 0, 0, 0.7);
+		--linear-from: rgb(113, 18, 18);
+		--linear-to: rgba(223, 8, 28, 0.84);
+		--box-shadow: rgb(21, 5, 5);
 	}
 
 	@font-face {

@@ -3,10 +3,10 @@
 	const IMAGE_API = 'https://image.tmdb.org/t/p/w300';
 	import Cast from '$lib/components/Cast.svelte';
 
-	let cast: CastType[] = [];
-	$: {
-		cast = episode_details.credits.cast;
-	}
+	// let cast: CastType[] = [];
+	// $: {
+	// 	cast = episode_details.credits.cast;
+	// }
 </script>
 
 <section id="episode">
