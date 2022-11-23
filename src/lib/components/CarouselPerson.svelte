@@ -34,9 +34,17 @@
 				<p class="text-skin-muted xl:line-clamp-2 flex items-center justify-center text-center">
 					{person.character}
 				</p>
+			{:else if person?.roles}
+				<p class="text-skin-muted xl:line-clamp-2 flex items-center justify-center text-center">
+					{person.roles[0].character}
+				</p>
 			{:else if person?.job}
 				<p class="text-skin-muted  flex items-center justify-center text-center">
 					{person.job}
+				</p>
+			{:else if person?.jobs}
+				<p class="text-skin-muted xl:line-clamp-2 flex items-center justify-center text-center">
+					{person.jobs[0].job}
 				</p>
 			{/if}
 		</div>

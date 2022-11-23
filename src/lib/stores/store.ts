@@ -34,6 +34,6 @@ export const createWritableStore = (key: string, startValue: any): any => {
         },
     };
 };
+export const region = createWritableStore('region', { locale: 'en-GB' })
 
 export const theme = createWritableStore('theme', { mode: 'light' })
-export const region = createWritableStore('region', { locale: 'en-GB' })

@@ -27,6 +27,7 @@
 			}
 		} else {
 			theme.useLocalStorage();
+			theme.set({ ...$theme });
 		}
 		if (!('region' in localStorage)) {
 			region.useLocalStorage();

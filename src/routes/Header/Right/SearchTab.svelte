@@ -64,12 +64,18 @@
 							</span>
 							<input
 								label="search"
-								class="text-skin-base neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorhdarkhove ml-3 
+								class="text-skin-base neumorph hover:neumorphhover dark:neumorphdark dark:hover:neumorhdarkhove mx-3 
                                 flex w-full border-2 bg-transparent pl-3 text-lg outline-none"
 								type="text"
 								placeholder="Search..."
 								bind:value={searchTerm}
 							/>
+							<button
+								class="btn morph btn-group-fill hover:neumorphhover 
+							dark:hover:neumorphdarkhover flex h-8 min-w-[32px] justify-center py-1 px-2 align-middle"
+							>
+								<span class="  h-5 w-5"> <SearchSvg /> </span>
+							</button>
 						</div>
 						<div class="flex xl:flex-row">
 							{#each mediaOptions as option}

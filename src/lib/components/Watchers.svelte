@@ -18,7 +18,7 @@
 	];
 
 	const index = CountryCode.findIndex((object) => {
-		return object.code === $page.data.locale;
+		return object.code === $page.data.region;
 	});
 
 	let activeCountryindex = index;

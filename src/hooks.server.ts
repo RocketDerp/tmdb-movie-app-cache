@@ -6,7 +6,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 
     if (!theme) {
         theme = 'light'
-        event.cookies.set('theme', 'light', { httpOnly: false, secure: false, sameSite: 'lax', path: '/', expires: new Date('Wed, 29 Dec 9999 23:59:59 GMT') });
+        event.cookies.set('theme', theme, { httpOnly: false, secure: false, sameSite: 'lax', path: '/', expires: new Date('Wed, 29 Dec 9999 23:59:59 GMT') });
     }
     if (!region) {
         const language = event.request.headers.get('accept-language')
@@ -15,6 +15,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     }
     event.locals.region = { locale: region }
     event.locals.theme = { mode: theme }
+
     const response = await resolve(event)
     return response
 }
