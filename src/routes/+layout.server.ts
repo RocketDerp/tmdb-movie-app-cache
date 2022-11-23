@@ -1,9 +1,6 @@
 import { API_KEY } from '$env/static/private';
 import type { LayoutServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
-import { theme } from '$lib/stores/store';
-import { region } from '$lib/stores/store';
-import { get } from 'svelte/store';
 
 export const load: LayoutServerLoad = async ({ locals }) => {
     const GENRES_TV_API = `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language=${locals.region.locale}`;

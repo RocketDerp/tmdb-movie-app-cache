@@ -463,6 +463,8 @@ type CastType = {
 	department: string;
 	job: string;
 	character: string;
+	roles: charcater[];
+	jobs: job[];
 	name: string;
 	profile_path: string;
 	poster_path: string | null;
@@ -525,4 +527,12 @@ interface Provider {
 	logo_path: string
 	provider_id: number
 	provider_name: string
+}
+
+type character = {
+	character: string;
+}
+
+type job = {
+	job: string
 }
